@@ -276,7 +276,7 @@ const configData = {
             }
          },
          {
-            value: 'CAPACITY_SPACE_500L_600L',
+            value: 'CAPACITY_SPACE_500L_6a00L',
             content: '700 L o más',
             relevantData: {
                description: 'Para quienes hacen muchas compras o comparten el frigorífico con otras personas.',
@@ -412,10 +412,10 @@ const configData = {
          },
          /* Not grade A but with good efficiency */
          {
-            value: 'Otra eficiencia que no sea A,  pero eficiente',
+            value: 'siendo',
             content: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
             relevantData: {
-               description: 'No estoy seguro Muéstrame todos los modelos',
+               description: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
                qnaScreenImg: 'step05/que_img04.png',
             }
          },

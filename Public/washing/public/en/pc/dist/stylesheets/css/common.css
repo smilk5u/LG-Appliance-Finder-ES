@@ -1486,7 +1486,7 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 #popup_step07.white .swiper-slide:nth-of-type(1) { display: block; }
 
-#popup_step07.silver .swiper-slide:nth-of-type(2) { display: block; }
+#popup_step07.stainless .swiper-slide:nth-of-type(2) { display: block; }
 
 #popup_step07.black .swiper-slide:nth-of-type(3) { display: block; }
 
@@ -1496,7 +1496,9 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 #popup_step07 .popup_wrap .swiper-slide:nth-of-type(1) .tit_wrap i { background-color: #fff; }
 
-#popup_step07 .popup_wrap .swiper-slide:nth-of-type(2) .tit_wrap i { background-color: #000; }
+#popup_step07 .popup_wrap .swiper-slide:nth-of-type(2) .tit_wrap i { background-image: url(../../images/step07/btn_icon02.jpg); }
+
+#popup_step07 .popup_wrap .swiper-slide:nth-of-type(3) .tit_wrap i { background-color: #000; }
 
 #popup_step07 .popup_wrap .indicator { width: 100%; position: absolute; bottom: 26.04167vw; z-index: 100; text-align: center; }
 

@@ -45,7 +45,7 @@ const ANYTHING = 'ANYTHING';
 const multipleSelectionContent = 'Puedes seleccionar multiples opciones';
 const selectAllContent = 'Todas las opciones';
 const anythingContent = 'No estoy seguro. <br> Muéstrame todos los modelos.';
-const nextContent = 'ADELANTE';
+const nextContent = 'SIGUIENTE';
 const nextLastContent = 'SIGUIENTE';
 
 let imgPath; // Images Path
@@ -357,7 +357,7 @@ const WMConfigData = {
       defaultScreenImg: 'step04/que_img01.png',
       allSelectOption: true,
       anythingOption: true,
-      option: [
+      option: [ 
          {
             value: 'PLUMBED',
             content: 'Eficiencia energética superior al A-10',
@@ -454,24 +454,24 @@ const WMConfigData = {
       questionText: '¿Qué color se adapta mejor a su interior? ',
       allSelectOption: true,
       resultContent: true,
-      productColorImg: ['_white_popup_img', '_black_popup_img'],
+      productColorImg: ['_white_popup_img', '_steel_popup_img', '_black_popup_img'],
       option: [
          {
             value: 'white',
             content: 'Blanco',
-            relevantData: {
+            relevantData: { 
                description: 'Un elegante electrodoméstico blanco para cualquier estilo de interior y estado de ánimo.',
                qnaScreenImg: 'que_img01.png',
                interactionPage: 'white',
             }
          },
          {
-            value: 'silver',
-            content: 'Plateado',
+            value: 'stainless', 
+            content: 'Plateado', 
             relevantData: {
                description: 'El plateado complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
                qnaScreenImg: 'que_img02.png',
-               interactionPage: 'silver',
+               interactionPage: 'stainless', 
             }
          },
          {
@@ -590,19 +590,19 @@ const WDConfigData = {
          {
             value: 'PLUMBED',
             content: 'Clasificación energética A',
-            optionIcon: 'step04/btn_icon01.png',
+            optionIcon: 'step04/btn_icon02.png',
             relevantData: {
                description: 'Clasificación energética A, la clase de mayor eficiencia energética de la escala de clasificación energética de la UE (de la A a la G) que ofrece la tecnología TurboWash™.',
-               qnaScreenImg: 'step04/que_img02.png',
+               qnaScreenImg: 'step04/que_img03.png',
             },
          },
          {
             value: 'WATER_ONLY',
             content: 'Clasificación energética B-C',
-            optionIcon: 'step04/btn_icon02.png',
+            optionIcon: 'step04/btn_icon03.png',
             relevantData: {
                description: 'No tiene clasificación energética A pero aún con buena eficiencia',
-               qnaScreenImg: 'step04/que_img03.png',
+               qnaScreenImg: 'step04/que_img04.png',
             },
          }
       ]
@@ -674,24 +674,24 @@ const WDConfigData = {
       questionText: '¿Qué color se adapta mejor a su interior? ',
       allSelectOption: true,
       resultContent: true,
-      productColorImg: ['_white_popup_img', '_black_popup_img'],
+      productColorImg: ['_white_popup_img', '_steel_popup_img', '_black_popup_img'],
       option: [
          {
             value: 'white',
             content: 'Blanco',
-            relevantData: {
+            relevantData: { 
                description: 'Un elegante electrodoméstico blanco para cualquier estilo de interior y estado de ánimo.',
                qnaScreenImg: 'que_img01.png',
                interactionPage: 'white',
             }
          },
          {
-            value: 'silver',
-            content: 'Plateado',
+            value: 'stainless', 
+            content: 'Plateado', 
             relevantData: {
                description: 'El plateado complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
                qnaScreenImg: 'que_img02.png',
-               interactionPage: 'silver',
+               interactionPage: 'stainless', 
             }
          },
          {
