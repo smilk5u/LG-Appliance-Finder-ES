@@ -42,11 +42,11 @@ const SELECTALL = 'SELECTALL';
 const ANYTHING = 'ANYTHING';
 
 /* Text */
-const multipleSelectionContent = 'Sie können mehrere Optionen auswählen.';
-const selectAllContent = 'Alles auswählen';
-const anythingContent = 'Ich bin unsicher. </br>Alle Ausführungen anzeigen.';
-const nextContent = 'WEITER';
-const nextLastContent = 'Fast geschafft!';
+const multipleSelectionContent = 'Puedes seleccionar multiples opciones';
+const selectAllContent = 'Todas las opciones';
+const anythingContent = 'No estoy seguro.<br> Muéstrame todos los modelos.';
+const nextContent = 'SIGUIENTE';
+const nextLastContent = 'Casi hemos acabado';
 
 let imgPath; // Images Path
 
@@ -156,16 +156,16 @@ const resultParamSet = {
 /* Config Data */
 const configData = {
    step01: {
-      questionText: 'Welche Art von Kühl- und Gefriergerät suchen Sie?',
+      questionText: '¿Qué tipo de Frigorífico Congelador está buscando?',
       defaultScreenImg: 'step01/que_img00.png',
       singleOption: true, // 단일 옵션
       resultContent: true,
       option: [
          {
             value: 'MULTI',
-            content: 'Multi-Door',
+            content: 'American Combi',
             relevantData: {
-               description: 'Mehrere Türen ermöglichen den gezielten Zugriff auf den Kühlbereich in der oberen und den Gefrierbereich in der unteren Hälfte.',
+               description: 'Varias puertas con un frigorífico muy amplio en la parte superior y congelador en la parte de abajo.',
                qnaScreenImg: 'step01/que_img01.png',
                interactionPage: 'multi',
             },
@@ -178,9 +178,9 @@ const configData = {
          },
          {
             value: 'AMERICAN',
-            content: 'Side-by-Side',
+            content: 'Side By Side',
             relevantData: {
-               description: 'Modelle mit zwei Türen, bei denen Kühl- und Gefrierbereich nebeneinander angeordnet sind.',
+               description: 'Frigorífico con dos puertas, con frigorífico y congelador uno al lado del otro.',
                qnaScreenImg: 'step01/que_img02.png',
                interactionPage: 'american',
 
@@ -189,14 +189,14 @@ const configData = {
                class: 'american',
                changeScreenImg: 'step02/que_img02.png',
                lastScreenImg: 'step07/american_que_img04.png',
-               resultImg: 'result/center_img01.png',
+               resultImg: 'result/center_img02.png',
             }
          },
          {
             value: 'TALL',
-            content: 'Kühl-/Gefrierkombination',
+            content: 'Combi',
             relevantData: {
-               description: 'Ein kompaktes Gerät mit Kühlbereich oben und Gefrierbereich unten.',
+               description: 'Un modelo estilizado con frigorífico arriba y congelador abajo.',
                qnaScreenImg: 'step01/que_img03.png',
                interactionPage: 'tall',
             },
@@ -204,143 +204,181 @@ const configData = {
                class: 'tall',
                changeScreenImg: 'step02/que_img03.png',
                lastScreenImg: 'step07/tall_que_img04.png',
-               resultImg: 'result/center_img01.png',
+               resultImg: 'result/center_img03.png',
+            }
+         },
+         {
+            value: 'DOUBLE',
+            content: 'Dos puertas',
+            relevantData: {
+               description: 'Un modelo de dos puertas con un congelador en la parte superior y un frigorífico en la inferior',
+               qnaScreenImg: 'step01/que_img04.png',
+               interactionPage: 'double',
+            },
+            saveImg: {
+               class: 'double',
+               changeScreenImg: 'step02/que_img04.png',
+               lastScreenImg: 'step07/double_que_img04.png',
+               resultImg: 'result/center_img04.png',
+            }
+         },
+         {
+            value: 'LADER',
+            content: 'Frigorífico y Congelador (1 puerta)',
+            relevantData: {
+               description: 'Una solución inteligente para quienes necesitan un congelador independiente por motivos de espacio o comodidad. ',
+               qnaScreenImg: 'step01/que_img05.png',
+               interactionPage: 'lader',
+            },
+            saveImg: {
+               class: 'lader',
+               changeScreenImg: 'step02/que_img05.png', 
+               lastScreenImg: 'step07/lader_que_img04.png',
+               resultImg: 'result/center_img05.png',
             }
          },
       ]
    },
    step02: {
-      questionText: 'Wieviel Fassungsvermögen </br>soll das Kühl- und Gefriergerät bieten?',
+      questionText: '¿Qué capacidad necesita?',
       allSelectOption: true,
       option: [
          {
             value: 'CAPACITY_UNDER_400L',
-            content: 'Weniger als 400 Liter',
+            content: 'Por debajo de 400L',
             relevantData: {
-               description: 'Perfekt, wenn Sie den Kühlschrank nicht dauerhaft nutzen oder Lebensmittel in geringen Mengen kaufen.',
+               description: 'Una opción práctica para el uso poco frecuente del frigoríficor o para las personas que compran pequeñas cantidades de alimentos cada vez.',
                icon: 'step02/disc_icon01.png',
             }
          },
          {
             value: 'NOTDATA',
-            content: '400 bis 500 Liter',
+            content: '400–500 L',
             relevantData: {
-               description: 'Perfekt für kleine Familien, die Lebensmittel schnell aufbrauchen.',
+               description: 'Capacidad indicada para familias pequeñas que consumen alimentos con rapidez',
                icon: 'step02/disc_icon02.png',
             }
          },
          {
             value: 'CAPACITY_SPACE_400L_500L',
-            content: '500 bis 600 Liter',
+            content: '500–600 L',
             relevantData: {
-               description: 'Die für viele Haushalte bevorzugte Größe.',
+               description: 'Una opción muy elegida por muchos hogares',
                icon: 'step02/disc_icon03.png',
             }
          },
          {
             value: 'CAPACITY_SPACE_500L_600L',
-            content: 'Über 600 Liter',
+            content: '600–700 L',
             relevantData: {
-               description: 'Ideal für Personen, die Lebensmittel in großen Mengen kaufen oder den Kühlschrank mit anderen teilen.',
+               description: 'Una buena elección para hogares grandes o con grandes necesidades de espacio de almacenamiento',
+               icon: 'step02/disc_icon03.png',
+            }
+         },
+         {
+            value: 'CAPACITY_SPACE_500L_600L',
+            content: '700 L o más',
+            relevantData: {
+               description: 'Para quienes hacen muchas compras o comparten el frigorífico con otras personas.',
                icon: 'step02/disc_icon04.png',
             }
          },
       ]
    },
    step03: {
-      questionText: 'Welche Größe passt am besten in Ihre Küche?',
+      questionText: '¿Qué tamaño se adapta mejor a su espacio?',
       relevantData: {
          description: {
-            head: 'Tipp: So ermitteln Sie den verfügbaren Platz für Kühl- und Gefriergeräte.',
-            detail: 'Was Sie beachten sollten: Die Türen des Geräts benötigen zum Öffnen und Belüften 25 bis 50 Millimeter Raum. Alle LG Kühl- und Gefriergeräte passen durch ihre Tiefe zu Standard-Küchenmaßen und fügen sich mit einer schlanker Form flexibel ein. Die Installation an besonders kalten oder heißen Stellen ist nicht zu empfehlen.'
+            head: 'Guía para medir el hueco necesario para tu frigorífico.',
+            detail: 'Calcula que hueco necesitas para tu frigorífico. Las puertas necesitan (25-50mm) de espacio para abrirse y ventilarse. Todos los frigoríficos LG se adaptan al fondo de la encimera. Se desaconseja instalar cerca de zonas frías o calientes.'
          },
          additionalDesc: true,
          icon: 'step03/disc_icon01.png',
       },
       subStep: {
-         'Tiefe': {
+         'Fondo': {
             option: [
                {
                   value: 'DEPTH_UNDER_760MM',
-                  content: 'Unter 76 cm',
+                  content: 'Menos de 76 cm',
                },
                {
                   value: 'NOTDATA',
-                  content: '76 cm oder mehr',
+                  content: '76 cm o más',
                },
             ],
          },
-         'Breite': {
+         'Ancho': {
             allSelectOption: true,
             option: [
                {
                   value: 'WIDTH_SPANCE_610MM_800MM',
-                  content: 'Unter 60 cm',
+                  content: 'Menos de 60 cm',
                },
                {
                   value: 'WIDTH_SPANCE_810MM_900MM',
-                  content: '61 bis 90 cm',
+                  content: '61-90 cm',
                },
                {
                   value: 'WIDTH_SPANCE_910MM_OR_MORE',
-                  content: 'Mehr als 91 cm',
+                  content: 'Más de 91 cm',
                },
             ],
          },
-         'Höhe': {
+         'Alto': {
             allSelectOption: true,
             option: [
                {
                   value: 'HEIGHT_UNDER_1800MM',
-                  content: 'Unter 180 cm',
+                  content: 'Menos de 180 cm',
                },
                {
                   value: 'HEIGHT_SPANCE_1800MM_2000MM',
-                  content: '180 bis 200 cm',
+                  content: '180-195 cm',
                },
                {
                   value: 'HEIGHT_2000L_OR_MORE',
-                  content: 'Mehr als 200 cm',
+                  content: 'Más de 195 cm',
                },
             ],
          },
-
       }
    },
    step04: {
-      questionText: 'Suchen Sie ein Kühl- und </br>Gefriergerät mit Eis- oder Wasserspender?',
+      questionText: '¿Necesitas un frigorífico <br> con dispensador de hielo y agua?',
       defaultScreenImg: 'step04/que_img01.png',
       allSelectOption: true,
       anythingOption: true,
       option: [
+         /* Ice & Water Dispenser (Plumbed) */
          {
             value: 'Wasserspender',
-            content: 'Eis- und Wasserspender </br>(mit Festwasseranschluss)',
+            content: 'Dispensador de hielo y agua <br> (con toma de agua)',
             relevantData: {
-               description: 'Jederzeit Wasser und Eis - ohne einen Tank nachfüllen zu müssen.',
+               description: 'Dispensa agua y hielo sin necesidad de rellenar el depósito de agua.',
                qnaScreenImg: 'step04/que_img02.png',
-               // videoPopup: 'video1',
             },
          },
+         /* Ice & Water Dispenser (Non-Plumbed) */
          {
             value: 'Festwasseranschluss',
-            content: 'Eis- und Wasserspender </br>(ohne Festwasseranschluss)',
+            content: 'Dispensador de hielo y agua <br> (sin toma de agua)',
             relevantData: {
                description: {
-                  head: 'Wasser und Eis in jeder Küche - dank integriertem Wassertank.',
-                  detail: 'Auch wenn Sie keinen verfügbaren Wasseranschluss haben, müssen Sie durch LG Kühl- und Gefriergeräte mit integrierten Wassertanks nicht auf Eis- und Wasserspender verzichten.'
+                  head: 'Con Depósito de agua rellenable conectado al dispensador.',
+                  detail: 'Si no puede conectarse a una toma de agua, los frigoríficos sin toma  tienen un depóstito de agua rellenable conectado al dispensador de agua de la puerta.'
                },
-               // videoPopup: 'video2',
                qnaScreenImg: 'step04/que_img03.png',
             },
          },
+         /* Water Only Dispenser (Non-Plumbed) */
          {
             value: 'ohne',
-            content: 'Wasserspender </br>(ohne Festwasseranschluss)',
+            content: 'Dispensador de agua <br> (sin toma de agua)',
             relevantData: {
                description: {
-                  head: 'Genießen Sie gekühltes Wasser direkt aus dem Kühlschrank.',
-                  detail: 'Durch den integrierten Wassertank genießen Sie auch ohne Festwasseranschluss jederzeit eine kühle Erfrischung.'
+                  head: 'Disfrute de agua fría directamente de su frigorífico.',
+                  detail: 'Una forma práctica de disfrutar de agua fría del frigorífico  a través del depósito de agua rellenable incorporado.'
                },
                qnaScreenImg: 'step04/que_img04.png',
             }
@@ -348,68 +386,74 @@ const configData = {
       ]
    },
    step05: {
-      questionText: 'Welche Energieeffizienzklasse </br>soll Ihr Kühl- und Gefriergerät haben?',
+      questionText: '¿Qué eficiencia quieres que tenga  tu frigorífico?',
       defaultScreenImg: 'step05/que_img01.png',
       allSelectOption: true,
       resultContent: true,
       anythingOption: true,
       option: [
+         /* Over A-10% Energy Efficiency */
          {
-            value: 'Mehr',
-            content: 'Mehr als A-10% Energieeffizienz',
+            value: 'eficiencia',
+            content: 'Más de un 10% de eficiencia energética',
             relevantData: {
-               description: 'Mindestens 10% effizienter als Effizienzklasse A',
+               description: 'Al menos un 10% más eficiente que los modelos A',
                qnaScreenImg: 'step05/que_img02.png',
             },
          },
+         /* Energy Grade A */
          {
             value: 'Effizienzklasse',
-            content: 'Effizienzklasse A',
+            content: 'Eficiencia energética A',
             relevantData: {
-               description: 'Effizienzklasse A ist die höchste Bewertung auf der EU-Skala (A bis G) - ermöglicht durch den LG Inverter Linear Compressor®.',
+               description: 'Clasificiación A, la más eficiente en la escala de clasificación energética de la UE (de la A a la G) que ofrece LG Inverter Linear Compressor™.',
                qnaScreenImg: 'step05/que_img03.png',
             }
          },
+         /* Not grade A but with good efficiency */
          {
-            value: 'Effizienz',
-            content: 'Eine starke Effizienz </br>- auch ohne Klasse A.',
+            value: 'Otra eficiencia que no sea A,  pero eficiente',
+            content: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
             relevantData: {
-               description: 'Weniger effizient als Klasse A, aber dennoch energiesparend.',  
+               description: 'No estoy seguro Muéstrame todos los modelos',
                qnaScreenImg: 'step05/que_img04.png',
             }
          },
       ]
    },
    step06: {
-      questionText: 'Was ist Ihnen besonders wichtig?',
+      questionText: '¿Qué otros detallaes del frigorífico son importantes para ti?',
       defaultScreenImg: 'step06/que_img01.png',
       allSelectOption: true,
       resultContent: true,
       anythingOption: true,
       option: [
+         /* Smart/AI features */
          {
             value: 'Smart',
-            content: 'Smart-Features',
+            content: 'Funciones inteligentes/AI',
             relevantData: {
-               description: 'Ein intelligenter Assistent erleichtert Ihnen verschiedene Aufgaben im Haushalt.',
+               description: "Un asistente inteligente para diversas tareas domésticas.",
                qnaScreenImg: 'step06/que_img02.png',
                videoPopup: 'smart_ai_thinkQ',
             }
          },
+         /* Ventilation */
          {
             value: 'Belüftung',
-            content: 'Belüftung',
+            content: 'Ventilación',
             relevantData: {
-               description: 'Der Pure N Fresh Luftfilter minimiert Geruchsentwicklung und hält die Luft frisch.',
-               qnaScreenImg: 'step06/que_img03.png',               
+               description: 'Pure N Fresh minimiza los olores de los alimentos y mantiene el aire fresco dentro de tu frigorífico.',
+               qnaScreenImg: 'step06/que_img03.png',
                videoPopup: 'ventilation_pure_N_fresh',
             }
          },
+         /* InstaView™ Door-in-Door® */
          {
             value: 'InstaView',
-            content: 'InstaView Door-in-Door®',
+            content: 'InstaView™ Door-in-Door®',
             relevantData: {
-               description: 'Klopfen Sie zweimal und sehen Sie ins Innere des Kühlschranks, ohne Kälte zu verlieren oder Energie zu verschwenden.',
+               description: 'Haz toc toc para ver el interior mientras mantienes la freescura y ahorras energía.',
                qnaScreenImg: 'step06/que_img04.png',
                videoPopup: 'instaview',
             }
@@ -417,44 +461,48 @@ const configData = {
       ]
    },
    step07: {
-      questionText: 'Welche Farbe suchen Sie für Ihre Küche?',
+      questionText: '¿Qué color prefieres?',
       allSelectOption: true,
       resultContent: true,
       productColorImg: ['_black_popup_img', '_white_popup_img', '_steel_popup_img', '_silver_popup_img'], // step06 인터렉션 페이지 컬러매칭 이미지 뿌리기
       option: [
+         /* Black  */
          {
             value: 'BLACK',
-            content: 'Schwarz',
+            content: 'Negro',
             relevantData: {
-               description: 'Eine stilvolle Farbe, die ins Auge fällt und zeitlos-edel ist.',
+               description: 'Un color elegante y con estilo, llamativo y lujoso.',
                qnaScreenImg: 'que_img01.png',
                interactionPage: 'black',
             }
          },
+         /* White  */
          {
             value: 'WHITE',
-            content: 'Weiß',
+            content: 'Blanco',
             relevantData: {
-               description: 'Passt perfekt in nahezu jedes Umfeld.',
+               description: 'Un color agradable que se adapte a cualquier ambiente',
                interactionPage: 'white',
                qnaScreenImg: 'que_img04.png',
 
             }
          },
+         /* Stainless steel */
          {
             value: 'STAINLESS',
-            content: 'Edelstahl',
+            content: 'Acero inoxidable',
             relevantData: {
-               description: 'Edles Aussehen und pflegeleicht.',
+               description: 'Un color elegante pero que sea fácil de mantener',
                interactionPage: 'stainless',
                qnaScreenImg: 'que_img02.png',
             }
          },
+         /* Silver */
          {
             value: 'SILVER',
-            content: 'Silber',
+            content: 'Plateado',
             relevantData: {
-               description: 'Harmoniert mit einer Vielzahl anderer Möbel und bringt zeitlose Eleganz in die Küche.',
+               description: 'Complemento de diversos estilos, los plateados añaden estilo a tu cocina.',
                interactionPage: 'silver',
                qnaScreenImg: 'que_img03.png',
             }
