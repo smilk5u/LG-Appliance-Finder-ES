@@ -413,7 +413,7 @@ const configData = {
          /* Not grade A but with good efficiency */
          {
             value: 'siendo',
-            content: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
+            content: 'Otra eficiencia que no sea A, </br>pero eficiente',
             relevantData: {
                description: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
                qnaScreenImg: 'step05/que_img04.png',

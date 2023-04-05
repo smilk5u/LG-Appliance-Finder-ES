@@ -360,7 +360,7 @@ const WMConfigData = {
       option: [ 
          {
             value: 'PLUMBED',
-            content: 'Eficiencia energética superior al A-10',
+            content: 'Eficiencia energética </br>superior al A-10',
             optionIcon: 'step04/btn_icon01.png',
             relevantData: {
                description: '10% más eficiente que el grado A ',
@@ -389,10 +389,10 @@ const WMConfigData = {
    },
    step05: {
       questionText: '¿Qué aspecto del rendimiento de </br>la lavadora es más importante para usted?',
-      defaultScreenImg: 'step04/que_img01.png',
-      allSelectOption: true,
+      defaultScreenImg: 'step05/que_img01.png',
+      // allSelectOption: true,
       resultContent: true,
-      // anythingOption: true,
+      singleOption: true, // 단일 옵션
       option: [
          {
             value: 'Textilschutz',
@@ -599,20 +599,20 @@ const WDConfigData = {
          {
             value: 'WATER_ONLY',
             content: 'Clasificación energética B-C',
-            optionIcon: 'step04/btn_icon03.png',
+            optionIcon: 'step04/btn_icon04.png',
             relevantData: {
                description: 'No tiene clasificación energética A pero aún con buena eficiencia',
-               qnaScreenImg: 'step04/que_img04.png',
+               qnaScreenImg: 'step04/que_img05.png',
             },
          }
       ]
    },
    step05: {
       questionText: '¿Qué aspecto del rendimiento de </br>la lavadora es más importante para usted?',
-      defaultScreenImg: 'step04/que_img01.png',
-      allSelectOption: true,
+      defaultScreenImg: 'step05/que_img01.png',
+      // allSelectOption: true,
       resultContent: true,
-      // anythingOption: true,
+      singleOption: true, // 단일 옵션
       option: [
          {
             value: 'Textilschutz',
@@ -872,7 +872,7 @@ function main() {
    let headerHeight = $('header').outerHeight();
    let currentConfig;
    // let lastFinderIndex = Object.values(currentConfig).length - 1;
-
+   let singleBoolean = true;
    class Subject {
       constructor() {
          this.selectedParameters = []; // Filter Push 
@@ -919,6 +919,7 @@ function main() {
 
       /* 마크업 초기화 & 생성 */
       setMarkupDate() {
+         singleBoolean = true;
          console.log('index : ', idx, '--------------------------------------------------------------------');
          if (idx !== 0) {
             if (this.selectedProduct.class === 'washer') {
@@ -961,20 +962,18 @@ function main() {
          }
 
 
-
-         // // console.log(currentStructural.descriptionOrder)
-         // if (currentStructural.descriptionOrder) {
-         //    console.log('있따')
-         //    console.log(currentStructural.descriptionOrder)
-         //    // $descHead.append('<span>' + currentStructural.descriptionOrder + '</span>');
-         //    $descHead.append('야이샨연ㄴ너');
-         // }
-
-         // // if (selectedProduct[0].key === 'Type_value1') {
-         // //    $descHead.append('<span>' + configData.finderSetting[idx].description + '</span>');
-         // // } else {
-         // //    $descHead.append('<span>' + configData.finderSetting[idx].descriptionOrder + '</span>');
-         // // }
+         /* 230405 start */
+         /* 단일 옵션 */
+         if (currentStructural.singleOption) {
+            $('.select_tit').css('display', 'none');
+         } else {
+            if (idx === 2) {
+               $('.select_tit').css('display', 'none');
+            } else {
+               $('.select_tit').css('display', 'block');
+            }
+         }
+         /* 230405 end */
 
          /* Mark Up */
          let _currentOption = currentStructural.option;
@@ -1021,17 +1020,17 @@ function main() {
       /* 옵션 active & 해제 */
       optionActivation(element) {
          let _value = element.data('value');
-
-         if (idx === 0) {
+         
+         /* 230405 start */
+         if (currentStructural.singleOption) {
             // button active 
             $('.option_btn').removeClass('active');
             element.addClass('active');
             applianceFinder.filterUpdate(_value, true);
-         }
-         if (idx !== 0) {
+         } else {
+            /* 230405 end */ 
             if (!element.hasClass('active')) {
                element.addClass('active');
-
                if (_value === ANYTHING) {
                   // 모두 해제
                   $('.option_btn').each(function () {
@@ -1045,7 +1044,7 @@ function main() {
                   $('.all_select').removeClass('active');
                } else {
                   $('.anything_btn').removeClass('active');
-                  // applianceFinder.filterUpdate($('.anything_btn').data('value'), false);
+                  applianceFinder.filterUpdate($('.anything_btn').data('value'), false);
                }
                applianceFinder.filterUpdate(_value, true);
             } else {
@@ -1199,9 +1198,14 @@ function main() {
                      applianceFinder.selectedProduct = element.saveImg
                   }
                });
+            } else if (idx === 4) {               
+               if (singleBoolean) {
+                  singleBoolean = false;
+               } else {
+                  this.selectedParameters.pop();
+               }
+               this.selectedParameters.push(_value); // Select Value Push
             } else {
-               /* anyting push ************ */
-               if (_value !== ANYTHING) { }
                this.selectedParameters.push(_value); // Select Value Push
             }
          }
@@ -1249,7 +1253,7 @@ function main() {
          }
          this.stateOptions();
          // this.taggingEvent(); // 태깅 함수
-         // this.sprayData(true);
+         this.sprayData(true);
       }
 
       /* 현재 스탭 선택한 필터 제품 매칭 저장 */
@@ -1306,6 +1310,9 @@ function main() {
          } else {
             exposureData = currentStructural;
          }
+
+
+         console.log(exposureData)
 
          /* 상관없음 옵션 & 데이터 없음 */
          if (!exposureData || exposureData && exposureData.DataNon) {
@@ -1451,12 +1458,14 @@ function main() {
                }
             });
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);
-            /* 빈값일 때 지우기 */
-            if (resultText === '') {
-               $finderResult.find('dl').eq(arrayIndex).remove();
-            }
          });
          // taggingEvent(_last); // 태깅 함수
+
+         $finderResult.find('dl').each(function () {
+            if ($(this).find('dd').text() === '') {
+               $(this).remove();
+            }
+         })
       }
 
       /* 결과 URL 추출 */

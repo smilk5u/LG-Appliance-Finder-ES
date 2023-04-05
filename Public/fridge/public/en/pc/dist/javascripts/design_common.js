@@ -413,7 +413,7 @@ const configData = {
          /* Not grade A but with good efficiency */
          {
             value: 'siendo',
-            content: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
+            content: 'Otra eficiencia que no sea A, </br>pero eficiente',
             relevantData: {
                description: 'Menos eficiente que la clase A pero que siga siendo una buena eficiencia',
                qnaScreenImg: 'step05/que_img04.png',
@@ -743,7 +743,7 @@ function main() {
          $selectWrap.removeClass('all');
 
          idx === 0 ? $backBtn.css('display', 'none') : $backBtn.css('display', 'block') // step 1에서 back 버튼 삭제
- 
+
          /* Main Images Open */
          if (defaultScreenImg) {
             $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + defaultScreenImg + ')');
@@ -771,7 +771,7 @@ function main() {
                if (subStepItem.allSelectOption) {
                   $selectWrap.addClass('all');
                   optionHtml += `<button class="all_select" type="button" data-value="${_subKey[subStepIndex]}_${SELECTALL}"><span></span><p>${selectAllContent}</p></button>`;
-               } 
+               }
                subStepItem.option.forEach(function (subOption) {
                   if (subOption.value === 'NOTDATA') {
                      optionHtml += `<button class="option_btn" type="button" data-value="${subOption.value}" disabled><p>${subOption.content}</p></button>`;
@@ -798,6 +798,7 @@ function main() {
 
       /* 옵션 active & 해제 */
       optionActivation(element) {
+         console.log('애ㅑ호ㅓ호홓')
          let _value = element.data('value');
 
          if (idx === 0) {
@@ -953,7 +954,7 @@ function main() {
             // console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
          }
 
-     
+
 
          // $('.option_wrap').each(function () {
          //    let optionButtonNumber = $(this).find('.option_btn').index();
@@ -1101,6 +1102,7 @@ function main() {
                $descIcon.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.icon + ')');
             }
             if (exposureData.relevantData.qnaScreenImg) {
+               console.log(exposureData.relevantData.qnaScreenImg)
                $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.qnaScreenImg + ')');
             }
 
@@ -1137,7 +1139,6 @@ function main() {
             }
             if (exposureData.relevantData.videoPopup) {
                console.log(exposureData.relevantData, exposureData.relevantData.videoPopup)
-               console.log('dfdfdfdfdf')
                $learnMoreBtn.attr('id', 'videoMoreBtn');
                $learnMoreBtn.addClass('active');
                $popupMovie.removeClass().addClass(exposureData.relevantData.videoPopup);
@@ -1219,6 +1220,12 @@ function main() {
             });
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);
          });
+
+         $finderResult.find('dl').each(function(){
+            if ($(this).find('dd').text() ==='') {
+               $(this).remove();
+            }
+         })
          // taggingEvent(_last); // 태깅 함수
       }
 
@@ -1315,7 +1322,7 @@ function main() {
             concatArr += Object.values(productSpec[value]) + ",";
          }
          applianceFinder.concatArrDuplicationDel = [...new Set(concatArr.split(","))];
-         console.log(applianceFinder.concatArrDuplicationDel);
+         // console.log(applianceFinder.concatArrDuplicationDel);
          // console.log(concatArrDuplicationDel);
          // console.log("선택한 옵션과 제품에 따라 활성화 되어야 하는 옵션 " + concatArrDuplicationDel);
          // $(".option_btn").prop("disabled", true);

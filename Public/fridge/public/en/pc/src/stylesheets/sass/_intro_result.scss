@@ -39,21 +39,15 @@
 		background-color:$white; padding:vw(70) vw(90);
 		@include borderRadius(vw(25));
 		@include boxShadow(0 vw(2) vw(15) vw(-10) $black);
-		&.remove_color {
-			dl {
-				&:nth-of-type(1) dd { color: #f4bb44; }
-				&:nth-of-type(2) dd { color: #195090; }
-			}
-		}
 		dl {
-			padding:vw(40) 0 0;
-			&:nth-of-type(1) {
-				padding:0;
-				dd {color:#f4bb44;}
+			padding: vw(40) 0 0;
+			&.choice_type {
+				padding: 0;
+				dd { color: #f4bb44; }
 			}
-			&:nth-of-type(2) dd { color: #2dbd9b; }
-			&:nth-of-type(3) dd { color: #195090; }
-			&:nth-of-type(4) dd { color: #9964da; }
+			&.choice_option1 { dd { color: #2dbd9b; } }
+			&.choice_color { dd { color: #195090; } }
+			&.choice_option2 { dd { color: #9964da; } }
 		}
 		dt {font-size:vw(38); font-weight:$bold;}
 		dd {
