@@ -871,7 +871,7 @@ function main() {
    let lastFinderIndex = 6;
    let headerHeight = $('header').outerHeight();
    let currentConfig;
-   
+
    class Subject {
       constructor() {
          this.selectedParameters = []; // Filter Push 
@@ -939,7 +939,6 @@ function main() {
          questionText = currentStructural.questionText;
          defaultScreenImg = currentStructural.defaultScreenImg;
 
-
          $queTitle.css('display', 'block').empty().append(questionText);
          $finderMain.removeClass().addClass(currentStep);
          $descHeadWrap.find('strong').empty().append(questionText);
@@ -978,23 +977,22 @@ function main() {
          let _currentOption = currentStructural.option;
          if (currentStructural.subStep === undefined) {
             _currentOption.forEach(function (option) {
-               if (option.value === 'NOTDATA') {
-                  // $selectContainer.find('li').last().find('button').prop('disabled', true);
-               }
                if (option.optionIcon) {
                   $selectContainer.append(`<li><button class="option_btn" type="button" data-value="${option.value}"><i style="background-image:url(${imgPath + option.optionIcon})"></i><p>${option.content}</p></button></li>`);
                } else {
                   $selectContainer.append(`<li><button class="option_btn" type="button" data-value="${option.value}"><i></i><p>${option.content}</p></button></li>`);
                }
+               if (option.value === 'NOTDATA') {
+                  $selectContainer.find('li').last().find('button').prop('disabled', true);
+               }
             });
          } else {
             let _subStep = Object.values(currentStructural.subStep);
-            let _subKey = Object.keys(currentStructural.subStep);
             _subStep.forEach(function (subStepItem, subStepIndex) {
                let optionHtml = '';
                if (subStepItem.allSelectOption) {
                   $selectWrap.addClass('all');
-                  optionHtml += `<button class="all_select" type="button" data-value="${_subKey[subStepIndex]}_${SELECTALL}"><span></span><p>${selectAllContent}</p></button>`;
+                  optionHtml += `<button class="all_select" type="button"><span></span><p>${selectAllContent}</p></button>`;
                }
                subStepItem.option.forEach(function (subOption) {
                   if (subOption.value === 'NOTDATA') {
@@ -1011,7 +1009,7 @@ function main() {
          }
          if (currentStructural.allSelectOption) {
             $selectWrap.addClass('all');
-            $selectContainer.prepend(`<li><button class="all_select" type="button" data-value="${idx + 1}_${SELECTALL}"><span></span><p>${selectAllContent}</p></button></li>`)
+            $selectContainer.prepend(`<li><button class="all_select" type="button"><span></span><p>${selectAllContent}</p></button></li>`)
          }
          idx === lastFinderIndex ? $nextBtn.text(nextLastContent) : $nextBtn.text(nextContent);
       }
@@ -1168,7 +1166,7 @@ function main() {
             if (activeOption === enabledOptions) {
                $('.all_select').addClass('active');
             }
-            // console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
+            console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
          }
          $('.option_wrap').each(function () {
             let optionButtonNumber = $(this).find('.option_btn').index();
@@ -1182,7 +1180,6 @@ function main() {
                }
             })
          });
-
          this.taggingEvent(); // 태깅 함수
       }
 
@@ -1202,11 +1199,11 @@ function main() {
                $('.option_btn').each(function () {
                   if ($(this).data('value') === applianceFinder.selectedParameters.slice(-1)[0]) {
                      singleBoolean = true;
-                  } 
+                  }
                });
                if (singleBoolean) {
                   this.selectedParameters.pop();
-               } 
+               }
                this.selectedParameters.push(_value); // Select Value Push
             } else {
                this.selectedParameters.push(_value); // Select Value Push
@@ -1241,6 +1238,18 @@ function main() {
                this.selectedParameters.pop();
             }
             this.stepCount.pop();
+         }
+
+         /* Option Active */
+         for (let i = 0; i < this.stepCount.slice(-1)[0]; i++) {
+            let value = this.selectedParameters[this.selectedParameters.length - (1 + i)];
+            $('.option_btn').each(function () {
+               let _this = $(this);
+               let _value = _this.data('value');
+               if (value === _value) {
+                  _this.addClass('active');
+               }
+            });
          }
          this.stateOptions();
          this.sprayData(true);
@@ -1374,10 +1383,8 @@ function main() {
          modelDescription = []; // 누적 선택한 항목 컨텐츠
          let array = [];
 
-         console.log(currentConfig)
          /* array save */
          if (idx !== 0) {
-
             Object.values(currentConfig).some((stepElement) => {
                if (stepElement.option) {
                   array.push(stepElement.option);

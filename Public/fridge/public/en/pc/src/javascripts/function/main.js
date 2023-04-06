@@ -101,18 +101,17 @@ function main() {
          if (currentStructural.subStep === undefined) {
             _currentOption.forEach(function (option) {
                $selectContainer.append(`<li><button class="option_btn" type="button" data-value="${option.value}"><i></i><p>${option.content}</p></button></li>`);
-               if (option.value === 'NOTDATA') {
+               if (option.value === 'NOTDATA') { 
                   $selectContainer.find('li').last().find('button').prop('disabled', true);
                }
             });
          } else {
             let _subStep = Object.values(currentStructural.subStep);
-            let _subKey = Object.keys(currentStructural.subStep);
             _subStep.forEach(function (subStepItem, subStepIndex) {
                let optionHtml = '';
                if (subStepItem.allSelectOption) {
                   $selectWrap.addClass('all');
-                  optionHtml += `<button class="all_select" type="button" data-value="${_subKey[subStepIndex]}_${SELECTALL}"><span></span><p>${selectAllContent}</p></button>`;
+                  optionHtml += `<button class="all_select" type="button"><span></span><p>${selectAllContent}</p></button>`;
                }
                subStepItem.option.forEach(function (subOption) {
                   if (subOption.value === 'NOTDATA') {
@@ -129,7 +128,7 @@ function main() {
          }
          if (currentStructural.allSelectOption) {
             $selectWrap.addClass('all');
-            $selectContainer.prepend(`<li><button class="all_select" type="button" data-value="${idx + 1}_${SELECTALL}"><span></span><p>${selectAllContent}</p></button></li>`)
+            $selectContainer.prepend(`<li><button class="all_select" type="button"><span></span><p>${selectAllContent}</p></button></li>`)
          }
          if (idx === lastFinderIndex) {
             $nextBtn.text(nextLastContent);
