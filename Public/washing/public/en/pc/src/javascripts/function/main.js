@@ -2,8 +2,7 @@ function main() {
    let lastFinderIndex = 6;
    let headerHeight = $('header').outerHeight();
    let currentConfig;
-   // let lastFinderIndex = Object.values(currentConfig).length - 1;
-   let singleBoolean = true;
+   
    class Subject {
       constructor() {
          this.selectedParameters = []; // Filter Push 
@@ -50,8 +49,8 @@ function main() {
 
       /* 마크업 초기화 & 생성 */
       setMarkupDate() {
-         singleBoolean = true;
          console.log('index : ', idx, '--------------------------------------------------------------------');
+         // console.log('selectedParameters : ', this.selectedParameters);
          if (idx !== 0) {
             if (this.selectedProduct.class === 'washer') {
                currentStructural = Object.values(WMConfigData)[idx - 1];
@@ -92,8 +91,6 @@ function main() {
             }
          }
 
-
-         /* 230405 start */
          /* 단일 옵션 */
          if (currentStructural.singleOption) {
             $('.select_tit').css('display', 'none');
@@ -104,7 +101,6 @@ function main() {
                $('.select_tit').css('display', 'block');
             }
          }
-         /* 230405 end */
 
          /* Mark Up */
          let _currentOption = currentStructural.option;
@@ -151,15 +147,13 @@ function main() {
       /* 옵션 active & 해제 */
       optionActivation(element) {
          let _value = element.data('value');
-         
-         /* 230405 start */
+
          if (currentStructural.singleOption) {
             // button active 
             $('.option_btn').removeClass('active');
             element.addClass('active');
             applianceFinder.filterUpdate(_value, true);
          } else {
-            /* 230405 end */ 
             if (!element.hasClass('active')) {
                element.addClass('active');
                if (_value === ANYTHING) {
@@ -329,12 +323,16 @@ function main() {
                      applianceFinder.selectedProduct = element.saveImg
                   }
                });
-            } else if (idx === 4) {               
+            } else if (currentStructural.singleOption) {
+               let singleBoolean = false;
+               $('.option_btn').each(function () {
+                  if ($(this).data('value') === applianceFinder.selectedParameters.slice(-1)[0]) {
+                     singleBoolean = true;
+                  } 
+               });
                if (singleBoolean) {
-                  singleBoolean = false;
-               } else {
                   this.selectedParameters.pop();
-               }
+               } 
                this.selectedParameters.push(_value); // Select Value Push
             } else {
                this.selectedParameters.push(_value); // Select Value Push
@@ -355,7 +353,7 @@ function main() {
          } else {
             this.stepCount.push($('.option_btn.active').length);
          }
-         // console.log(this.stepCount);
+         console.log('stepCount : ', this.stepCount);
       }
 
       /* 선택한 value & 카운트 삭제 */
@@ -382,6 +380,8 @@ function main() {
                }
             });
          }
+
+         console.log('selectedParameters : ', this.selectedParameters);
          this.stateOptions();
          // this.taggingEvent(); // 태깅 함수
          this.sprayData(true);
@@ -441,9 +441,6 @@ function main() {
          } else {
             exposureData = currentStructural;
          }
-
-
-         console.log(exposureData)
 
          /* 상관없음 옵션 & 데이터 없음 */
          if (!exposureData || exposureData && exposureData.DataNon) {

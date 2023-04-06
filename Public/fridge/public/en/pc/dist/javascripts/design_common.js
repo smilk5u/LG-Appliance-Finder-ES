@@ -42,11 +42,11 @@ const SELECTALL = 'SELECTALL';
 const ANYTHING = 'ANYTHING';
 
 /* Text */
-const multipleSelectionContent = 'Puedes seleccionar multiples opciones';
+const multipleSelectionContent = 'Puedes seleccionar multiples opciones.'; 
 const selectAllContent = 'Todas las opciones';
 const anythingContent = 'No estoy seguro.<br> Muéstrame todos los modelos.';
 const nextContent = 'SIGUIENTE';
-const nextLastContent = 'Casi hemos acabado';
+const nextLastContent = 'Casi hemos acabado'; 
 
 let imgPath; // Images Path
 
@@ -1215,7 +1215,11 @@ function main() {
                      resultText += element + '<span>, </span>';
                   }
                } else {
-                  resultText += element + '<span>.</span>';
+                  if (arrayIndex === 2) {
+                     resultText += element;
+                  } else {
+                     resultText += element + '<span>.</span>';
+                  }
                }
             });
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);

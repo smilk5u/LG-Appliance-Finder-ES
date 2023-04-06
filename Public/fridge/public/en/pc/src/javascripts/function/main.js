@@ -542,7 +542,11 @@ function main() {
                      resultText += element + '<span>, </span>';
                   }
                } else {
-                  resultText += element + '<span>.</span>';
+                  if (arrayIndex === 2) {
+                     resultText += element;
+                  } else {
+                     resultText += element + '<span>.</span>';
+                  }
                }
             });
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);

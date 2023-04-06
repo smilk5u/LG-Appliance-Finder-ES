@@ -205,7 +205,7 @@
 			width: 620px; padding: 45px 40px 75px; 
 			@include borderRadius(20px);
 			@include boxSizing;
-			strong { display: block; font-size: 32px; padding:0 0 45px; }
+			strong { display: block; font-size: 32px; padding: 0 0 10px; }
 			.popup_cont { padding: 0; }
 			// 제품 별 텍스트 정렬 설정
 			// .tall,.lader {
@@ -262,7 +262,7 @@
 	@include tablet () {
 		.popup_wrap {
 			width: 485px; padding: 40px 40px 70px;
-			strong { font-size: 26px; padding: 0 0 30px; }
+			strong { font-size: 26px; }
 			.size_txt {
 				span { font-size: 15px; }
 			}
