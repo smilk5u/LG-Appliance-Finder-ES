@@ -67,8 +67,8 @@ let activeOption = 0; // Active Count
 
 /* Tgging */
 let stageIdx; // Index
-let stageDesc; // Description
-let stageCont; // Content
+let modelDescription; // Model Description
+let stageLinkName; // Link Name
 
 /* Spec Sit Product Value */
 const WMProductSpec = {
@@ -919,7 +919,9 @@ function main() {
       /* 마크업 초기화 & 생성 */
       setMarkupDate() {
          console.log('index : ', idx, '--------------------------------------------------------------------');
-         // console.log('selectedParameters : ', this.selectedParameters);
+         stageIdx = 'stage' + (idx + 1);
+         stageLinkName = 'r_Btn_' + stageIdx;
+
          if (idx !== 0) {
             if (this.selectedProduct.class === 'washer') {
                currentStructural = Object.values(WMConfigData)[idx - 1];
@@ -940,13 +942,14 @@ function main() {
 
          $queTitle.css('display', 'block').empty().append(questionText);
          $finderMain.removeClass().addClass(currentStep);
-         $(window).scrollTop(headerHeight);
          $descHeadWrap.find('strong').empty().append(questionText);
          $selectContainer.empty();
          $nextBtn.attr('data-link-name', nextContent + ' : Q' + (idx + 1) + ' ' + $('#finderNav li').eq(idx).find('p').text());
+         $showNow.attr('data-link-name', stageLinkName);
          $description.css('display', 'none');
          $popupMovie.removeClass();
          $selectWrap.removeClass('all');
+         $(window).scrollTop(headerHeight);
 
          idx === 0 ? $backBtn.css('display', 'none') : $backBtn.css('display', 'block') // step 1에서 back 버튼 삭제
 
@@ -1179,6 +1182,8 @@ function main() {
                }
             })
          });
+
+         this.taggingEvent(); // 태깅 함수
       }
 
       /* 필터 업데이트 추가 & 삭제 */
@@ -1237,28 +1242,8 @@ function main() {
             }
             this.stepCount.pop();
          }
-
-         /* Option Active */
-         for (let i = 0; i < this.stepCount.slice(-1)[0]; i++) {
-            let value = this.selectedParameters[this.selectedParameters.length - (1 + i)];
-            $('.option_btn').each(function () {
-               let _this = $(this);
-               let _value = _this.data('value');
-               if (value === _value) {
-                  _this.addClass('active');
-               }
-            });
-         }
-
-         console.log('selectedParameters : ', this.selectedParameters);
          this.stateOptions();
-         // this.taggingEvent(); // 태깅 함수
          this.sprayData(true);
-      }
-
-      /* 현재 스탭 선택한 필터 제품 매칭 저장 */
-      matchingProductsSave() {
-         applianceFinder.optionDisabled(crrSelOption);
       }
 
       /* 옵션 구조 초기화 */
@@ -1319,35 +1304,42 @@ function main() {
          }
 
          /* 해당 옵션 데이터 노출 */
-         if (boolean && exposureData && exposureData.relevantData) {
+         if (boolean && exposureData && exposureData.relevantData) { /* Icon */
             if (exposureData.relevantData.icon) {
                $descIcon.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.icon + ')');
             }
             if (exposureData.relevantData.qnaScreenImg) {
                $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.qnaScreenImg + ')');
             }
-            if (exposureData.relevantData.description.head) {
-               $descHead.text(exposureData.relevantData.description.head);
-               $descDetail.text(exposureData.relevantData.description.detail);
-               $loadMoreBtn.addClass('active');
-               $loadMoreBtn.attr('id', 'descMoreBtn');
-            } else if (exposureData.relevantData.description) {
-               $descHead.text(exposureData.relevantData.description);
-            }
-            if (currentStructural.descriptionOrder) {
-               $descHead.append('<span>' + currentStructural.descriptionOrder + '</span>');
-            }
             $loadMoreBtn.removeClass('active');
             $loadMoreBtn.removeAttr('id');
+            $popupMovie.removeClass();
+            $learnMoreBtn.removeClass('active');
 
-            /* 디크스립션 & 팝업 */
-            if (exposureData.relevantData.additionalDesc) {
-               $learnMoreBtn.attr('id', 'descMoreBtn');
-               $learnMoreBtn.addClass('active');
+            if (exposureData.relevantData.description.head) { /* Head And Detail Description */
+               $descHead.text(exposureData.relevantData.description.head);
+               $descDetail.text(exposureData.relevantData.description.detail);
+               if (exposureData.relevantData.additionalDesc) { /* Lean More */
+                  $learnMoreBtn.attr('id', 'descMoreBtn');
+                  $learnMoreBtn.addClass('active');
+                  if (exposureData.content) {
+                     $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
+                  } else {
+                     $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.relevantData.description.head.replace(/(<([^>]+)>)/ig, ''));
+                  }
+               } else {
+                  $loadMoreBtn.addClass('active');
+                  $loadMoreBtn.attr('id', 'descMoreBtn');
+                  $loadMoreBtn.attr('data-link-name', 'Load More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
+               }
+            } else if (exposureData.relevantData.description) { /* Description */
+               $descHead.text(exposureData.relevantData.description);
             }
+
             if (exposureData.relevantData.interactionPage) {
                $learnMoreBtn.attr('id', 'interactionBtn');
                $learnMoreBtn.addClass('active');
+               $learnMoreBtn.attr('data-link-name', 'Interaction Page : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
                $('#popup_' + currentStep).removeClass().addClass(exposureData.relevantData.interactionPage);
                if (idx === lastFinderIndex) {
                   $('#popup_' + currentStep).find('.txt_wrap img').each(function (index) {
@@ -1359,6 +1351,7 @@ function main() {
                $learnMoreBtn.attr('id', 'videoMoreBtn');
                $learnMoreBtn.addClass('active');
                $popupMovie.removeClass().addClass(exposureData.relevantData.videoPopup);
+               $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
             }
             if (idx === lastFinderIndex) {
                $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + 'step07/' + this.selectedProduct.class + '_' + exposureData.relevantData.qnaScreenImg + ')');
@@ -1377,8 +1370,49 @@ function main() {
       }
 
       /* 태깅 텍스트 */
-      taggingEvent() {
-         console.log('태깅함수');
+      taggingEvent(stepScreen) {
+         modelDescription = []; // 누적 선택한 항목 컨텐츠
+         let array = [];
+
+         console.log(currentConfig)
+         /* array save */
+         if (idx !== 0) {
+
+            Object.values(currentConfig).some((stepElement) => {
+               if (stepElement.option) {
+                  array.push(stepElement.option);
+               } else {
+                  Object.values(stepElement.subStep).some((step3Element) => {
+                     array.push(step3Element.option);
+                  })
+               }
+            })
+         }
+
+         /* value / content save */
+         let configDataArray = [];
+         array.some((arrayElement) => {
+            arrayElement.some((element) => {
+               configDataArray.push(element);
+            })
+         })
+
+         /* 분류 */
+         configDataArray.filter((element) => {
+            this.selectedParameters.some((item) => {
+               if (element.value === item) {
+                  modelDescription.push(element.content.replace(/(<([^>]+)>)/ig, ''));
+               }
+            });
+         })
+
+         // console.log('modelDescription : ', modelDescription, 'stageLinkName : ', stageLinkName);
+         if (stepScreen) {
+            $finalShowNow.attr('data-link-name', 'Get result');
+            $finalShowNow.attr('data-model-description', modelDescription);
+         } else {
+            $showNow.attr('data-model-description', modelDescription);
+         }
       }
 
       /* 결과 페이지 */
@@ -1625,7 +1659,7 @@ function main() {
             $qnaImgWrap.css('background-image', $qnaImgWrap.css('background-image').split('images')[0] + 'images/pc' + $qnaImgWrap.css('background-image').split('images')[1]);
             $centerImgWrap.css('background-image', $centerImgWrap.css('background-image').split('images')[0] + 'images/pc' + $centerImgWrap.css('background-image').split('images')[1])
             $descIcon.css('background-image', $descIcon.css('background-image').split('images')[0] + 'images/pc' + $descIcon.css('background-image').split('images')[1])
-            console.log($('#finderMain.step04 #selectWrap li i'))
+            // console.log($('#finderMain.step04 #selectWrap li i'))
             // $('#finderMain.step04 #selectWrap li i').css('background-image', $('#finderMain.step04 #selectWrap li i').css('background-image').split('images')[0] + 'images/pc' + $('#finderMain.step04 #selectWrap li i').css('background-image').split('images')[1])
          }
       } else {

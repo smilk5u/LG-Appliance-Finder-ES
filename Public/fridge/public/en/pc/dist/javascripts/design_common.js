@@ -67,8 +67,8 @@ let activeOption = 0; // Active Count
 
 /* Tgging */
 let stageIdx; // Index
-let stageDesc; // Description
-let stageCont; // Content
+let modelDescription; // Model Description
+let stageLinkName; // Link Name
 
 
 /* Spec Sit Product Value */
@@ -357,7 +357,7 @@ const configData = {
             relevantData: {
                description: 'Dispensa agua y hielo sin necesidad de rellenar el depósito de agua.',
                qnaScreenImg: 'step04/que_img02.png',
-            },
+            },            
          },
          /* Ice & Water Dispenser (Non-Plumbed) */
          {
@@ -368,6 +368,7 @@ const configData = {
                   head: 'Con Depósito de agua rellenable conectado al dispensador.',
                   detail: 'Si no puede conectarse a una toma de agua, los frigoríficos sin toma  tienen un depóstito de agua rellenable conectado al dispensador de agua de la puerta.'
                },
+               // additionalDesc: true,
                qnaScreenImg: 'step04/que_img03.png',
             },
          },
@@ -484,7 +485,6 @@ const configData = {
                description: 'Un color agradable que se adapte a cualquier ambiente',
                interactionPage: 'white',
                qnaScreenImg: 'que_img04.png',
-
             }
          },
          /* Stainless steel */
@@ -726,7 +726,10 @@ function main() {
 
       /* 마크업 초기화 & 생성 */
       setMarkupDate() {
-         // console.log('index : ', idx, '--------------------------------------------------------------------');
+         console.log('index : ', idx, '--------------------------------------------------------------------');
+         stageIdx = 'stage' + (idx + 1);
+         stageLinkName = 'r_Btn_' + stageIdx;
+
          currentStructural = Object.values(configData)[idx];
          currentStep = Object.keys(configData)[idx];
          questionText = currentStructural.questionText;
@@ -734,13 +737,14 @@ function main() {
 
          $queTitle.css('display', 'block').empty().append(questionText);
          $finderMain.removeClass().addClass(currentStep);
-         $(window).scrollTop(headerHeight);
          $descHeadWrap.find('strong').empty().append(questionText);
          $selectContainer.empty();
          $nextBtn.attr('data-link-name', nextContent + ' : Q' + (idx + 1) + ' ' + $('#finderNav li').eq(idx).find('p').text());
+         $showNow.attr('data-link-name', stageLinkName);
          $description.css('display', 'none');
          $popupMovie.removeClass();
          $selectWrap.removeClass('all');
+         $(window).scrollTop(headerHeight);
 
          idx === 0 ? $backBtn.css('display', 'none') : $backBtn.css('display', 'block') // step 1에서 back 버튼 삭제
 
@@ -754,13 +758,24 @@ function main() {
             }
          }
 
+         /* 단일 옵션 */
+         if (currentStructural.singleOption) {
+            $('.select_tit').css('display', 'none');
+         } else {
+            if (idx === 2) {
+               $('.select_tit').css('display', 'none');
+            } else {
+               $('.select_tit').css('display', 'block');
+            }
+         }
+
          /* Mark Up */
          let _currentOption = currentStructural.option;
          if (currentStructural.subStep === undefined) {
             _currentOption.forEach(function (option) {
                $selectContainer.append(`<li><button class="option_btn" type="button" data-value="${option.value}"><i></i><p>${option.content}</p></button></li>`);
                if (option.value === 'NOTDATA') {
-                  // $selectContainer.find('li').last().find('button').prop('disabled', true);
+                  $selectContainer.find('li').last().find('button').prop('disabled', true);
                }
             });
          } else {
@@ -798,16 +813,14 @@ function main() {
 
       /* 옵션 active & 해제 */
       optionActivation(element) {
-         console.log('애ㅑ호ㅓ호홓')
          let _value = element.data('value');
 
-         if (idx === 0) {
-            // Button Active 
+         if (currentStructural.singleOption) {
+            // button active 
             $('.option_btn').removeClass('active');
             element.addClass('active');
             applianceFinder.filterUpdate(_value, true);
-         }
-         if (idx !== 0) {
+         } else {
             if (!element.hasClass('active')) {
                element.addClass('active');
 
@@ -954,6 +967,8 @@ function main() {
             // console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
          }
 
+         this.taggingEvent(); // 태깅 함수
+
 
 
          // $('.option_wrap').each(function () {
@@ -981,9 +996,18 @@ function main() {
                      applianceFinder.selectedProduct = element.saveImg
                   }
                });
+            } else if (currentStructural.singleOption) {
+               let singleBoolean = false;
+               $('.option_btn').each(function () {
+                  if ($(this).data('value') === applianceFinder.selectedParameters.slice(-1)[0]) {
+                     singleBoolean = true;
+                  } 
+               });
+               if (singleBoolean) {
+                  this.selectedParameters.pop();
+               } 
+               this.selectedParameters.push(_value); // Select Value Push
             } else {
-               /* anyting push ************ */
-               if (_value !== ANYTHING) { }
                this.selectedParameters.push(_value); // Select Value Push
             }
          }
@@ -1017,27 +1041,9 @@ function main() {
             }
             this.stepCount.pop();
          }
-
-         /* Option Active */
-         // for (let i = 0; i < this.stepCount.slice(-1)[0]; i++) {
-         //    let value = this.selectedParameters[this.selectedParameters.length - (1 + i)];
-         //    $('.option_btn').each(function () {
-         //       let _this = $(this);
-         //       let _value = _this.data('value');
-         //       if (value === _value) {
-         //          _this.addClass('active');
-         //       }
-         //    });
-         // }
          this.stateOptions();
-         // this.taggingEvent(); // 태깅 함수
          this.sprayData(true);
       }
-
-      /* 현재 스탭 선택한 필터 제품 매칭 저장 */
-      // matchingProductsSave() {
-      //    applianceFinder.optionDisabled(crrSelOption);
-      // }
 
       /* 옵션 구조 초기화 */
       optionDataStructure() {
@@ -1090,46 +1096,49 @@ function main() {
          }
 
          /* 상관없음 옵션 & 데이터 없음 */
-         if (!exposureData || exposureData && exposureData.DataNon) {
+         if (!exposureData || exposureData && exposureData.DataNon) { 
             $queTitle.css('display', 'block');
             $description.css('display', 'none');
             $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + currentStructural.defaultScreenImg + ')');
          }
 
          /* 해당 옵션 데이터 노출 */
-         if (boolean && exposureData && exposureData.relevantData) {
+         if (boolean && exposureData && exposureData.relevantData) { /* Icon */
             if (exposureData.relevantData.icon) {
                $descIcon.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.icon + ')');
             }
             if (exposureData.relevantData.qnaScreenImg) {
-               console.log(exposureData.relevantData.qnaScreenImg)
                $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + exposureData.relevantData.qnaScreenImg + ')');
             }
-
             $loadMoreBtn.removeClass('active');
             $loadMoreBtn.removeAttr('id');
             $popupMovie.removeClass();
             $learnMoreBtn.removeClass('active');
 
-            if (exposureData.relevantData.description.head) {
+            if (exposureData.relevantData.description.head) { /* Head And Detail Description */
                $descHead.text(exposureData.relevantData.description.head);
                $descDetail.text(exposureData.relevantData.description.detail);
-               if (exposureData.relevantData.additionalDesc) {
+               if (exposureData.relevantData.additionalDesc) { /* Lean More */
                   $learnMoreBtn.attr('id', 'descMoreBtn');
                   $learnMoreBtn.addClass('active');
+                  if (exposureData.content) {
+                     $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
+                  } else {
+                     $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.relevantData.description.head.replace(/(<([^>]+)>)/ig, ''));
+                  }
                } else {
                   $loadMoreBtn.addClass('active');
                   $loadMoreBtn.attr('id', 'descMoreBtn');
-                  // _moreCont = _selectData[0].content.replace(/(<([^>]+)>)/ig, '');
-                  // $loadMoreBtn.attr('data-link-name', 'Load More : ' + _moreCont);
+                  $loadMoreBtn.attr('data-link-name', 'Load More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
                }
-            } else if (exposureData.relevantData.description) {
+            } else if (exposureData.relevantData.description) { /* Description */
                $descHead.text(exposureData.relevantData.description);
             }
 
             if (exposureData.relevantData.interactionPage) {
                $learnMoreBtn.attr('id', 'interactionBtn');
                $learnMoreBtn.addClass('active');
+               $learnMoreBtn.attr('data-link-name', 'Interaction Page : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
                $('#popup_' + currentStep).removeClass().addClass(exposureData.relevantData.interactionPage);
                if (idx === lastFinderIndex) {
                   $('#popup_' + currentStep).find('.txt_wrap img').each(function (index) {
@@ -1138,10 +1147,10 @@ function main() {
                }
             }
             if (exposureData.relevantData.videoPopup) {
-               console.log(exposureData.relevantData, exposureData.relevantData.videoPopup)
                $learnMoreBtn.attr('id', 'videoMoreBtn');
                $learnMoreBtn.addClass('active');
                $popupMovie.removeClass().addClass(exposureData.relevantData.videoPopup);
+               $learnMoreBtn.attr('data-link-name', 'Learn More : ' + exposureData.content.replace(/(<([^>]+)>)/ig, ''));
             }
             if (idx === lastFinderIndex) {
                $qnaImgWrap.attr('style', 'background-image:url(' + imgPath + 'step07/' + this.selectedProduct.class + '_' + exposureData.relevantData.qnaScreenImg + ')');
@@ -1160,12 +1169,50 @@ function main() {
       }
 
       /* 태깅 텍스트 */
-      taggingEvent() {
-         console.log('태깅함수');
+      taggingEvent(stepScreen) {
+         modelDescription = []; // 누적 선택한 항목 컨텐츠
+         let array = [];
+
+         /* array save */
+         Object.values(configData).some((stepElement) => {
+            if (stepElement.option) {
+               array.push(stepElement.option);
+            } else {
+               Object.values(stepElement.subStep).some((step3Element) => {
+                  array.push(step3Element.option);
+               })
+            }
+         })
+
+         /* value / content save */
+         let configDataArray = [];
+         array.some((arrayElement) => {
+            arrayElement.some((element) => {
+               configDataArray.push(element);
+            })
+         })
+
+         /* 분류 */
+         configDataArray.filter((element) => {
+            this.selectedParameters.some((item) => {
+               if (element.value === item) {
+                  modelDescription.push(element.content.replace(/(<([^>]+)>)/ig, ''));
+               }
+            });
+         })
+
+         // console.log('modelDescription : ', modelDescription, 'stageLinkName : ', stageLinkName);
+         if (stepScreen) {
+            $finalShowNow.attr('data-link-name', 'Get result');
+            $finalShowNow.attr('data-model-description', modelDescription);
+         } else {
+            $showNow.attr('data-model-description', modelDescription);
+         }
       }
 
       /* 결과 페이지 */
       showLastPage() {
+         let stepScreen = 'last';
          $finderMain.css('display', 'none');
          $finderResult.css('display', 'block');
          $centerImgWrap.attr('style', 'background-image: url(' + imgPath + this.selectedProduct.resultImg + ')') // 배경 이미지 변경
@@ -1225,12 +1272,12 @@ function main() {
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);
          });
 
-         $finderResult.find('dl').each(function(){
-            if ($(this).find('dd').text() ==='') {
+         $finderResult.find('dl').each(function () {
+            if ($(this).find('dd').text() === '') {
                $(this).remove();
             }
          })
-         // taggingEvent(_last); // 태깅 함수
+         this.taggingEvent(stepScreen) // 태깅 함수
       }
 
       /* 결과 URL 추출 */
@@ -1336,7 +1383,7 @@ function main() {
          }
          $('.option_btn[data-value="ANYTHING"]').prop("disabled", false);
          if (applianceFinder.selectProduct[idx - 1].length > 0) {
-            console.log("선택 후 남은 제품 " + applianceFinder.selectProduct[idx - 1]);
+            // console.log("선택 후 남은 제품 " + applianceFinder.selectProduct[idx - 1]);
          } else {
             $finderMain.addClass('not_matched');
          }

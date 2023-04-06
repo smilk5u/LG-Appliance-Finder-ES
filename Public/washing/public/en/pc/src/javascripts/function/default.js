@@ -67,8 +67,8 @@ let activeOption = 0; // Active Count
 
 /* Tgging */
 let stageIdx; // Index
-let stageDesc; // Description
-let stageCont; // Content
+let modelDescription; // Model Description
+let stageLinkName; // Link Name
 
 /* Spec Sit Product Value */
 const WMProductSpec = {

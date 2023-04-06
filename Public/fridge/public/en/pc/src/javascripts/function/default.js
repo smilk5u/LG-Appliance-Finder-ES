@@ -67,8 +67,8 @@ let activeOption = 0; // Active Count
 
 /* Tgging */
 let stageIdx; // Index
-let stageDesc; // Description
-let stageCont; // Content
+let modelDescription; // Model Description
+let stageLinkName; // Link Name
 
 
 /* Spec Sit Product Value */
@@ -357,7 +357,7 @@ const configData = {
             relevantData: {
                description: 'Dispensa agua y hielo sin necesidad de rellenar el depósito de agua.',
                qnaScreenImg: 'step04/que_img02.png',
-            },
+            },            
          },
          /* Ice & Water Dispenser (Non-Plumbed) */
          {
@@ -368,6 +368,7 @@ const configData = {
                   head: 'Con Depósito de agua rellenable conectado al dispensador.',
                   detail: 'Si no puede conectarse a una toma de agua, los frigoríficos sin toma  tienen un depóstito de agua rellenable conectado al dispensador de agua de la puerta.'
                },
+               // additionalDesc: true,
                qnaScreenImg: 'step04/que_img03.png',
             },
          },
@@ -484,7 +485,6 @@ const configData = {
                description: 'Un color agradable que se adapte a cualquier ambiente',
                interactionPage: 'white',
                qnaScreenImg: 'que_img04.png',
-
             }
          },
          /* Stainless steel */
