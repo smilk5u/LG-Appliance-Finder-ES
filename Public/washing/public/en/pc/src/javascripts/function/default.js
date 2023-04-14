@@ -65,7 +65,7 @@ let crrSelOption = [];
 let enabledOptions = 0; // Button All Count
 let activeOption = 0; // Active Count
 
-/* Tgging */
+/* Tagging */
 let stageIdx; // Index
 let modelDescription; // Model Description
 let stageLinkName; // Link Name
@@ -488,11 +488,11 @@ const WMConfigData = {
 }
 const WDConfigData = {
    step02: {
-      questionText: '¿Qué capacidad necesitas? (Lavado + Secado)',
+      questionText: '¿Qué capacidad necesitas? </br><span>(Lavado + Secado)</span>',
       descriptionOrder: '* La capacidad de la ropa puede variar según el uso',
       allSelectOption: true,
       option: [
-         {
+         { 
             value: 'CAPACITY_UNDER_400L',
             content: '8-8,5 kg + 5 kg',
             relevantData: {
@@ -501,7 +501,7 @@ const WDConfigData = {
             }
          },
          {
-            value: 'NOTDATA',
+            value: 'NOTDATAa',
             content: '8-9 kg + 6 kg',
             relevantData: {
                description: 'Para más de 45 camisas o un edredón de tamaño mediano en un solo lavado.',

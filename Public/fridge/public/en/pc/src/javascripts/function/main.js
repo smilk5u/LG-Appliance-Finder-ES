@@ -294,21 +294,6 @@ function main() {
          }
 
          this.taggingEvent(); // 태깅 함수
-
-
-
-         // $('.option_wrap').each(function () {
-         //    let optionButtonNumber = $(this).find('.option_btn').index();
-         //    let activeNumber = 0;
-         //    $(this).find('.option_btn').each(function () {
-         //       if ($(this).hasClass('active')) {
-         //          activeNumber++;
-         //       }
-         //       if (optionButtonNumber === activeNumber) {
-         //          $(this).siblings('.all_select').addClass('active');
-         //       }
-         //    })
-         // });
       }
 
       /* 필터 업데이트 추가 & 삭제 */
@@ -409,7 +394,6 @@ function main() {
 
       /* 해당 옵션 내용 노출 */
       sprayData(boolean) {
-         let _moreCont;
          let lastValue = this.selectedParameters[this.selectedParameters.length - 1]; // 마지막 value 값
          let exposureData;
          if (idx !== 2) {
@@ -602,7 +586,7 @@ function main() {
             if ($(this).find('dd').text() === '') {
                $(this).remove();
             }
-         })
+         });
          this.taggingEvent(stepScreen) // 태깅 함수
       }
 

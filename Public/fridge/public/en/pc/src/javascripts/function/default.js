@@ -65,7 +65,7 @@ let crrSelOption = [];
 let enabledOptions = 0; // Button All Count
 let activeOption = 0; // Active Count
 
-/* Tgging */
+/* Tagging */
 let stageIdx; // Index
 let modelDescription; // Model Description
 let stageLinkName; // Link Name
@@ -252,7 +252,7 @@ const configData = {
             }
          },
          {
-            value: 'NOTDATA',
+            value: 'NOTaDATA',
             content: '400–500 L',
             relevantData: {
                description: 'Capacidad indicada para familias pequeñas que consumen alimentos con rapidez',

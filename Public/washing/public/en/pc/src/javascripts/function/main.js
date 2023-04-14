@@ -297,7 +297,7 @@ function main() {
             if (activeOption === enabledOptions) {
                $('.all_select').addClass('active');
             }
-            console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
+            // console.log('enabledOptions(옵션토탈갯수) : ', enabledOptions, 'activeOption(acitve갯수) : ', activeOption)
          }
          $('.option_wrap').each(function () {
             let optionButtonNumber = $(this).find('.option_btn').index();
@@ -355,7 +355,7 @@ function main() {
          } else {
             this.stepCount.push($('.option_btn.active').length);
          }
-         console.log('stepCount : ', this.stepCount);
+         // console.log('stepCount : ', this.stepCount);
       }
 
       /* 선택한 value & 카운트 삭제 */
@@ -424,7 +424,6 @@ function main() {
 
       /* 해당 옵션 내용 노출 */
       sprayData(boolean) {
-         let _moreCont;
          let lastValue = this.selectedParameters[this.selectedParameters.length - 1]; // 마지막 value 값
          let exposureData;
          if (idx !== 2) {
@@ -475,6 +474,9 @@ function main() {
             } else if (exposureData.relevantData.description) { /* Description */
                $descHead.text(exposureData.relevantData.description);
             }
+            if (currentStructural.descriptionOrder) {
+               $descHead.append('<span>' + currentStructural.descriptionOrder + '</span>');
+            }
 
             if (exposureData.relevantData.interactionPage) {
                $learnMoreBtn.attr('id', 'interactionBtn');
@@ -515,6 +517,15 @@ function main() {
          let array = [];
 
          /* array save */
+         Object.values(configData).some((stepElement) => {
+            if (stepElement.option) {
+               array.push(stepElement.option);
+            } else {
+               Object.values(stepElement.subStep).some((step3Element) => {
+                  array.push(step3Element.option);
+               });
+            }
+         });
          if (idx !== 0) {
             Object.values(currentConfig).some((stepElement) => {
                if (stepElement.option) {
@@ -522,9 +533,9 @@ function main() {
                } else {
                   Object.values(stepElement.subStep).some((step3Element) => {
                      array.push(step3Element.option);
-                  })
+                  });
                }
-            })
+            });
          }
 
          /* value / content save */
@@ -532,8 +543,8 @@ function main() {
          array.some((arrayElement) => {
             arrayElement.some((element) => {
                configDataArray.push(element);
-            })
-         })
+            });
+         });
 
          /* 분류 */
          configDataArray.filter((element) => {
@@ -542,9 +553,9 @@ function main() {
                   modelDescription.push(element.content.replace(/(<([^>]+)>)/ig, ''));
                }
             });
-         })
+         });
 
-         // console.log('modelDescription : ', modelDescription, 'stageLinkName : ', stageLinkName);
+         console.log('modelDescription : ', modelDescription, 'stageLinkName : ', stageLinkName);
          if (stepScreen) {
             $finalShowNow.attr('data-link-name', 'Get result');
             $finalShowNow.attr('data-model-description', modelDescription);
@@ -555,6 +566,7 @@ function main() {
 
       /* 결과 페이지 */
       showLastPage() {
+         let stepScreen = 'last';
          $finderMain.css('display', 'none');
          $finderResult.css('display', 'block');
          $centerImgWrap.attr('style', 'background-image: url(' + imgPath + this.selectedProduct.resultImg + ')') // 배경 이미지 변경
@@ -628,13 +640,13 @@ function main() {
             });
             $finderResult.find('dl').eq(arrayIndex).find('dd').append(resultText);
          });
-         // taggingEvent(_last); // 태깅 함수
 
          $finderResult.find('dl').each(function () {
             if ($(this).find('dd').text() === '') {
                $(this).remove();
             }
-         })
+         });
+         this.taggingEvent(stepScreen) // 태깅 함수
       }
 
       /* 결과 URL 추출 */
