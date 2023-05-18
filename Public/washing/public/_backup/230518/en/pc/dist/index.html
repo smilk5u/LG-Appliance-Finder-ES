@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ES(스페인) / washing machine(세탁기)</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="Description" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta name="Keywords" content="">
+	<meta name="Author" content="">
+	<meta name="robots" content="ALL">
+	<link rel="stylesheet" href="./stylesheets/css/common.css">
+	<script src="./javascripts/jquery-1.8.2.min.js"></script>
+	<!-- <script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WMRN2JB');
+	</script>
+	<script>
+		var standardData = {};
+		standardData = {
+			"siteType": "B2C",
+			"pageType": "MICROSITE",
+			"pdpStatus": "",
+			"level1": "ha",
+			// "level2": "",
+			// "level3": ""
+		};
+		_dl = {
+			"page_name": {
+				"super_category": "home-appliances",
+				"bu": "ha",
+				"sub_category_list": "",
+				"sub_category": "",
+				"page_purpose": "microsite",
+				"category": "refrigerators"
+			},
+			"country_code": "uk",
+			"language_code": "en",
+			"microsite_name": "appliance finder"
+		};
+	</script> -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69014947-51"></script> -->
+	<!-- <script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-69014947-51');
+	</script> -->
+</head>
+<body>
+	<noscript> <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WMRN2JB" height="0" width="0" style="display:none;visibility:hidden" title="googletagmanager iframe"> </iframe> </noscript>
+	<!-- <div class="guide_line">
+      <div class="guide_70"></div>
+      <div class="guide_center"></div>
+      <div class="guide_1320"></div> 
+      <div class="guide_1180"></div>
+   </div> -->
+	<!-- 스테이징 / 라이브 적용시 삭제 -->
+	<!-- <header>header</header> -->
+	<!-- //스테이징 / 라이브 적용시 삭제 -->
+	<!-- <div class="cookie-banner"></div> --> <!-- Enter Code Here -->
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+<!-- finder -->
+<div id="applianceFinder">    
+	<!--intro-->
+	<div id="finderIntro"> 
+		<!-- <div class="intro_animation">  -->
+		<div class="intro_animation" style="display: none;">
+			<div id="animationPlayer"></div>
+		</div>
+	</div>
+	<!--//intro-->
+	<!-- finderMain -->
+	<div id="finderMain" class="finder">
+		<div class="finder_wrap">
+			<!--navigation-->
+			<div id="finderNav">
+				<ul>
+					<li>
+						<strong>1</strong>
+						<p>TIPO</p>
+					</li>
+					<li>
+						<strong>2</strong>
+						<p>CAPACIDAD</p>
+					</li>
+					<li> 
+						<strong>3</strong>
+						<p>TAMAÑO</p>
+					</li>
+					<li>
+						<strong>4</strong>
+						<p>EFICIENCIA ENERGÉTICA</p>
+					</li>
+					<li>
+						<strong>5</strong>
+						<p>PRESTACIONES</p>
+					</li>
+					<li>
+						<strong>6</strong>
+						<p>CARACTERÍSTICAS</p>
+					</li>
+					<li>
+						<strong>7</strong>
+						<p>COLOR</p>
+					</li>
+				</ul>
+			</div>
+			<!--//navigation-->
+			<!--question & answer area-->
+			<div class="qna_wrap">
+				<strong class="que_title"></strong>
+				<div class="qna_description qna_description01">
+					<strong></strong>
+					<div class="txt_box">
+						<i></i>
+						<p></p>
+						<button type="button" class="load_more_btn">SABER MÁS</button>
+						<button type="button" class="learn_more_btn">SABER MÁS</button> 
+					</div>
+				</div>
+				<div class="qna_description qna_description02">
+					<div class="txt_box">
+						<p></p>
+						<button id="detailCloseBtn" type="button" class="close_more_btn">CERRAR</button>
+					</div>
+				</div>
+			</div>
+			<div id="qnaImgWrap"></div>
+		</div>
+		<div id="selectWrap">
+			<button type="button" class="caution_open_btn">Haz clic aquí para ver una guía de dimensiones y medidas.</button>
+			<p class="select_tit"><em>Puedes seleccionar multiples opciones.</em></p>
+			<ol> </ol>
+		</div>
+		<div class="sub_contain">
+			<div class="show_now_wrap">
+				<button type="button" id="shopNowBtn">Ver los resultados ahora</button>
+			</div>
+			<!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
+			<div class="step_move_wrap">
+				<div class="btn_cont">
+					<button type="button" id="backStepBtn">ATRÁS</button>
+				</div>
+				<div class="btn_cont">
+					<button type="button" id="nextStepBtn">SIGUIENTE</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //finderMain -->
+	<!--result-->
+	<div id="finderResult">
+		<strong class="tit">Sie werden eine gute <br> Entscheidung treffen!</strong>
+		<div class="center_img_wrap"></div>
+		<div class="txt_wrap">
+         <!-- 230405 start -->
+			<dl class="choice_type">
+				<dt>Sie wählten eine(n)</dt>
+				<dd></dd>
+			</dl>
+			<dl class="choice_option1">
+				<dt>Sie legen Wert auf</dt>
+				<dd></dd>
+			</dl>
+			<dl class="choice_color">
+				<dt>Wir empfehlen Ihnen</dt>
+				<dd></dd>
+			</dl>
+			<dl class="choice_option2">
+				<dt>waschmaschinen mit</dt>
+				<dd></dd>
+			</dl>
+         <!-- 230405 end -->
+		</div>
+		<div class="result_btn_wrap">
+			<button type="button" id="tryAgain">Erneut versuchen</button>
+			<button type="button" id="finalShowNow">Ergebnis anzeigen</button>
+		</div>
+	</div>
+	<!--//result--> 
+	<!-- Step1 Interactive Popup -->
+<div id="finderPopup">
+	<div id="popup_step01">
+		<!-- Lavadora estándar -->
+		<div class="popup_wrap">
+			<div class="tit_wrap">
+				<i></i>
+				<strong>Lavadora estándar</strong>
+			</div>
+			<div class="popup_con">
+				<strong>¿Te gusta lo sencillo y fiable? Esta puede ser su elección perfecta de lavadora</strong>
+				<div class="txt_wrap">
+					<img class="mo_only" src="./images/step01/popup_contents_img01.png" alt="Multidoor">
+					<img class="pc_only" src="./images/pc/step01/popup_contents_img01.png" alt="Multidoor">
+					<div class="txt_box">
+						<p>De aspecto y funcionalidad clásicos, ejecutan eficazmente las funciones principales de una lavadora.</p>
+						<button type="button" class="close_btn">Empecemos</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // Lavadora estándar -->
+		<!--Lavadora secadora-->
+		<div class="popup_wrap">
+			<div class="tit_wrap">
+				<i></i>
+				<strong>Lavadora secadora</strong>
+			</div>
+			<div class="popup_con">
+				<strong>Esta versión combinada es la opción más popular con diferencia</strong>
+				<div class="txt_wrap">
+					<img class="mo_only" src="./images/step01/popup_contents_img01.png" alt="Lavatrice standard">
+					<img class="pc_only" src="./images/pc/step01/popup_contents_img01.png" alt="Lavatrice standard">
+					<div class="txt_box">
+						<p>Opta por una multiuso que ahorra espacio. De aspecto minimalista, sus funciones presentan una solución todo en uno</p>
+						<button type="button" class="close_btn">Empecemos</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--//Lavadora secadora-->
+	</div>
+	<!-- // Step1 Interactive Popup -->
+	<!-- Step3 Size Popup -->
+	<div id="popupSize">
+		<div class="popup_wrap">
+			<strong>INFORMACIÓN </br>SOBRE EL TAMAÑO</strong>
+			<div class="popup_cont">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img class="mo_only" src="./images/step03/popup_img01.jpg" alt="Lavatrice standard & Lavasciuga, 60cm / 85cm / Profondità">
+						<img class="pc_only" src="./images/pc/step03/popup_img01.jpg" alt="Lavatrice standard & Lavasciuga, 60cm / 85cm / Profondità">
+						<div class="size_txt">
+							<span>Fondo</span>
+							<span>Ancho</span>
+							<span>Alto</span>
+						</div>
+					</div>
+				</div>
+				<div class="indicator"></div>
+			</div>
+			<button type="button" class="popup_close_btn">CERCA</button>
+		</div>
+	</div>
+	<!-- // Step3 Size Popup -->
+	<!-- Video Popup -->
+	<div id="popupMovie">
+		<div class="popup_wrap">
+			<!-- Gentle Fabric AI DD -->
+			<div class="movie_box">
+				<strong>Cuidado suave de los tejidos </br>para dañarlos lo menos posible</strong>
+				<div class="video_wrap">
+					<video playsinline="" muted="" loop="">
+						<source src="./datafile/gentle_fabric_ai_DD.mp4" type="video/mp4">
+					</video>
+					<i></i>
+					<img src="./images/common/gentle_fabric_ai_DD_poster_img.jpg" alt="Schonende Pflege für hohen Textilschutz">
+					<button type="button" class="video_btn" data-link-name="reproduktion Video : Schonende Pflege für hohen Textilschutz">reproduktion Video pulsante</button>
+				</div>
+				<div class="desc">
+					<span>*Las imágenes del producto en la imagen y el vídeo son sólo para fines ilustrativos y pueden diferir del producto real.</span>
+					<span>*Testado por Intertek en marzo de 2019. Ciclo de algodón con 2kg de ropa interior comparado con el ciclo de algodón convencional de LG(F4V9RWP2W vs FC1450S2W). Los resultados pueden ser diferentes dependiendo de la ropa y el entorno.</span>
+					<span>*AI DD está disponible en 3 ciclos.(Algodón, Tejido Mixto, Cuidado Fácil)</span>
+				</div>
+			</div>
+			<!-- Time-efficient Turbo Wash -->
+			<div class="movie_box">
+				<strong>Ahorro de tiempo</strong>
+				<div class="video_wrap">
+					<video playsinline="" muted="" loop="">
+						<source src="./datafile/time_efficient_turbo_wash.mp4" type="video/mp4">
+					</video>
+					<i></i>
+					<img src="./images/common/time_efficient_turbo_wash_poster_img.jpg" alt="Zeitersparnis">
+					<button type="button" class="video_btn" data-link-name="reproduktion Video : Zeitersparnis">reproduktion Video pulsante</button>
+				</div>
+				<div class="desc">
+					<span>*Las imágenes del producto en la imagen y el vídeo son sólo para fines ilustrativos y pueden diferir del producto real.</span>
+					<span>*Testado por Intertek, basado en IEC 60456 : edición 5.0. Ciclo TurboWash39 con 5kg de carga IEC comparado con Ciclo Convencional de Algodón con TurboWash (F4V9RWP2W vs. FC1450S2W). Los resultados pueden ser diferentes en función del entorno.</span>
+				</div>
+			</div>
+			<!-- Hygiene Steam -->
+			<div class="movie_box">
+				<strong>Higiene</strong>
+				<div class="video_wrap">
+					<video playsinline="" muted="" loop="">
+						<source src="./datafile/hygiene_steam.mp4" type="video/mp4">
+					</video>
+					<i></i>
+					<img src="./images/common/hygiene_steam_poster_img.jpg" alt="Hygiene">
+					<button type="button" class="video_btn" data-link-name="reproduktion Video : Hygiene">reproduktion Video pulsante</button>
+				</div>
+				<div class="desc">
+					<span>*Las imágenes del producto en la imagen y el vídeo son sólo para fines ilustrativos y pueden diferir del producto real.</span>
+					<span>*El ciclo Allergy Care aprobado por la BAF (British Allergy Foundation) elimina el 99,9% de los alérgenos de los ácaros del polvo.</span>
+					<span>*Testado por Intertek en diciembre de 2018 según la norma AATCC. Ciclo de algodón con la opción Wrinkle Care"" (3 camisas mixtas) comparado con el ciclo de algodón sin opción. Los resultados pueden ser diferentes según la ropa y el entorno.</span>
+					<span>*La función Wrinkle Care está disponible opcionalmente en 6 ciclos."</span>
+				</div>
+			</div>
+			<!-- Smart Ai ThinkQ -->
+			<div class="movie_box">
+				<strong>Funciones inteligentes/AI</strong>
+				<div class="video_wrap">
+					<video playsinline="" muted="" loop="">
+						<source src="./datafile/smart_ai_thinkQ.mp4" type="video/mp4">
+					</video>
+					<i></i>
+					<img src="./images/common/smart_ai_thinkQ_poster_img.jpg" alt="Smart-Features">
+					<button type="button" class="video_btn" data-link-name="reproduktion Video : Smart-Features">reproduktion Video pulsante</button>
+				</div>
+				<div class="desc">
+					<span>*Google y Google Home son marcas comerciales de Google LLC.</span>
+					<span>*Amazon, Alexa, Echo y todos los logotipos y marcas de movimiento relacionados son marcas comerciales de Amazon.com, Inc o sus filiales.</span>
+					<span>*LG SmartThinQ pasa a llamarse LG ThinQ.</span>
+					<span>*Las funciones inteligentes y el asistente de voz del producto pueden variar según el país y el modelo. Consulta con tu distribuidor local o con LG la disponibilidad del servicio.</span>
+					<span>*El dispositivo de altavoz inteligente habilitado para voz no está incluido.</span>
+					<span>*El vídeo del producto puede diferir del producto real.</span>
+					<span>*El control por voz solo se activa cuando la lavadora está encendida.</span>
+				</div>
+			</div>
+			<!-- Detergent Portioned And Dispensed Automatically ezDispense -->
+			<div class="movie_box">
+				<strong>Dosificación automática de detergente</strong>
+				<div class="video_wrap">
+					<video playsinline="" muted="" loop="">
+						<source src="./datafile/ezDispense.mp4" type="video/mp4">
+					</video>
+					<i></i>
+					<img src="./images/common/ezDispense_poster_img.jpg" alt="Automatische Dosierung des Waschmittels.">
+					<button type="button" class="video_btn" data-link-name="reproduktion Video : Automatische Dosierung des Waschmittels.">reproduktion Video pulsante</button>
+				</div>
+				<div class="desc">
+					<span>*Las imágenes del producto en la imagen y el vídeo son sólo para fines ilustrativos y pueden diferir del producto real.</span>
+					<span>*Lava hasta 20 veces con nivel de dosificación normal (carga de 5 kg). Testado por el laboratorio interno de LG. Ciclo de algodón con nivel de detergente Normal".</span>
+					<span>*Lavado de hasta 35 cargas utilizando ambos compartimentos de detergente y suavizante como detergente. Testado por el laboratorio interno de LG. Los resultados pueden variar según el entorno".</span>
+				</div>
+			</div>
+			<button type="button" class="popup_close_btn"></button>
+		</div>
+	</div>
+	<!-- // Video Popup -->
+	<!-- Step7 Interactive Popup -->
+	<div id="popup_step07">
+		<div class="popup_wrap">
+			<ol class="swiper-wrapper">
+				<li class="swiper-slide">
+					<div class="tit_wrap">
+						<i></i>
+						<strong>Blanco</strong>
+					</div>
+					<div class="popup_con">
+						<strong>La elección tradicional. No puede equivocarse con un electrodoméstico blanco</strong>
+						<div class="txt_wrap">
+							<img src="" alt="Nero product">
+							<div class="txt_box">
+								<div>
+									<p>El blanco es limpio, higiénico y combina bien con los demás electrodomésticos de la casa.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="swiper-slide">
+					<div class="tit_wrap">
+						<i></i>
+						<strong>Plateado</strong>
+					</div>
+					<div class="popup_con">
+						<strong>Un color fijo que combina bien con cualquier interior, ambiente o aspecto de la cocina</strong>
+						<div class="txt_wrap">
+							<img src="" alt="Nero product">
+							<div class="txt_box">
+								<div>
+									<p>El plateado combina bien con varios colores y estilos de interior.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="swiper-slide">
+					<div class="tit_wrap">
+						<i></i>
+						<strong>Negro</strong>
+					</div>
+					<div class="popup_con">
+						<strong>El negro nunca pasa de moda</strong>
+						<div class="txt_wrap">
+							<img src="" alt="Acciaio inox product">
+							<div class="txt_box">
+								<div>
+									<p>Las superficies negras mate son menos propensas a dejar huellas por el uso frecuente.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ol>
+			<button type="button" class="close_btn">¡Tus resultados están listos!</button>
+			<div class="indicator"></div>
+		</div>
+	</div>
+	<!-- // Step7 Interactive Popup -->
+</div> 
+</div>
+<!-- //finder -->
+  
+	<!-- 스테이징 / 라이브 적용시 삭제 -->
+	<!-- <footer>footer</footer> -->
+	<!-- //스테이징 / 라이브 적용시 삭제 -->
+	<script src="./javascripts/plugin.js"></script>
+	<script src="./javascripts/design_common.js"></script>
+</body>
+</html>

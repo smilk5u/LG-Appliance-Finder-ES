@@ -1,39 +1,39 @@
 "use strict";
 /* Element */
 const $applianceFinder = $('#applianceFinder'),
-   $finderMain = $applianceFinder.find('#finderMain'),
-   $selectWrap = $applianceFinder.find('#selectWrap'),
-   $selectContainer = $applianceFinder.find('#selectWrap ol'),
-   $selectButton = $applianceFinder.find('#selectWrap ol li'),
-   $qnaImgWrap = $applianceFinder.find('#qnaImgWrap'),
-   $qnaWrap = $applianceFinder.find('.qna_wrap'),
-   $description = $applianceFinder.find('.qna_description'),
-   $descHeadWrap = $applianceFinder.find('.qna_description01'),
-   $descDetailWrap = $applianceFinder.find('.qna_description02'),
-   $descIcon = $applianceFinder.find('.qna_description01 .txt_box i'),
-   $descHead = $applianceFinder.find('.qna_description01 .txt_box p'),
-   $descDetail = $applianceFinder.find('.qna_description02 .txt_box p'),
-   $centerImgWrap = $applianceFinder.find('.center_img_wrap'),
-   $introAnimation = $applianceFinder.find("#introAnimation"),
-   $subContain = $applianceFinder.find('.sub_contain'),
-   $queTitle = $applianceFinder.find('.que_title'),
-   $finderResult = $applianceFinder.find('#finderResult');
+    $finderMain = $applianceFinder.find('#finderMain'),
+    $selectWrap = $applianceFinder.find('#selectWrap'),
+    $selectContainer = $applianceFinder.find('#selectWrap ol'),
+    $selectButton = $applianceFinder.find('#selectWrap ol li'),
+    $qnaImgWrap = $applianceFinder.find('#qnaImgWrap'),
+    $qnaWrap = $applianceFinder.find('.qna_wrap'),
+    $description = $applianceFinder.find('.qna_description'),
+    $descHeadWrap = $applianceFinder.find('.qna_description01'),
+    $descDetailWrap = $applianceFinder.find('.qna_description02'),
+    $descIcon = $applianceFinder.find('.qna_description01 .txt_box i'),
+    $descHead = $applianceFinder.find('.qna_description01 .txt_box p'),
+    $descDetail = $applianceFinder.find('.qna_description02 .txt_box p'),
+    $centerImgWrap = $applianceFinder.find('.center_img_wrap'),
+    $introAnimation = $applianceFinder.find("#introAnimation"),
+    $subContain = $applianceFinder.find('.sub_contain'),
+    $queTitle = $applianceFinder.find('.que_title'),
+    $finderResult = $applianceFinder.find('#finderResult');
 
 /* Popup */
 const $popupSize = $applianceFinder.find('#popupSize'),
-   $popupMovie = $applianceFinder.find('#popupMovie');
+    $popupMovie = $applianceFinder.find('#popupMovie');
 
 /* Button */
 const $nextBtn = $applianceFinder.find('#nextStepBtn'),
-   $backBtn = $applianceFinder.find('#backStepBtn'),
-   $showNow = $applianceFinder.find('#shopNowBtn'),
-   $finalShowNow = $applianceFinder.find('#finalShowNow'),
-   $tryAgain = $applianceFinder.find('#tryAgain'),
-   $detailCloseBtn = $applianceFinder.find('#detailCloseBtn'),
-   $popupClose = $applianceFinder.find('.popup_close_btn'),
-   $interactionClose = $applianceFinder.find('.close_btn'),
-   $loadMoreBtn = $applianceFinder.find('.load_more_btn'),
-   $learnMoreBtn = $applianceFinder.find('.learn_more_btn');
+    $backBtn = $applianceFinder.find('#backStepBtn'),
+    $showNow = $applianceFinder.find('#shopNowBtn'),
+    $finalShowNow = $applianceFinder.find('#finalShowNow'),
+    $tryAgain = $applianceFinder.find('#tryAgain'),
+    $detailCloseBtn = $applianceFinder.find('#detailCloseBtn'),
+    $popupClose = $applianceFinder.find('.popup_close_btn'),
+    $interactionClose = $applianceFinder.find('.close_btn'),
+    $loadMoreBtn = $applianceFinder.find('.load_more_btn'),
+    $learnMoreBtn = $applianceFinder.find('.learn_more_btn');
 
 /* Select All */
 const SELECTALL = 'SELECTALL';
@@ -259,12 +259,12 @@ const configData = {
 }
 const WMConfigData = {
    step02: {
-      questionText: '¿Qué capacidad necesita?',
+      questionText: '¿Qué capacidad necesitas?',
       descriptionOrder: '* La capacidad de la ropa puede variar según el uso',
       allSelectOption: true,
       option: [
          {
-            value: 'CAPACITY_UNDER_400L',
+            value: '7KG',
             content: '7 kg ',
             relevantData: {
                description: 'Para más de 30 camisas, o un edredón de tamaño normal, en un solo lavado.',
@@ -272,7 +272,7 @@ const WMConfigData = {
             }
          },
          {
-            value: 'NOTDATA',
+            value: '8_9KG',
             content: '8-9 kg',
             relevantData: {
                description: 'Para más de 45 camisas o un edredón de tamaño mediano en un solo lavado.',
@@ -315,11 +315,11 @@ const WMConfigData = {
                   content: 'Menos de 49,5 cm',
                },
                {
-                  value: 'NOTDATA',
+                  value: 'DEPTH_UNDER_760MM',
                   content: '55-56,5 cm',
                },
                {
-                  value: 'NOTDATA',
+                  value: 'DEPTH_UNDER_760MM',
                   content: '60 cm o más',
                },
             ],
@@ -357,22 +357,22 @@ const WMConfigData = {
       defaultScreenImg: 'step04/que_img01.png',
       allSelectOption: true,
       anythingOption: true,
-      option: [ 
-         {
-            value: 'PLUMBED',
-            content: 'Eficiencia energética </br>superior al A-10',
-            optionIcon: 'step04/btn_icon01.png',
-            relevantData: {
-               description: '10% más eficiente que el grado A ',
-               qnaScreenImg: 'step04/que_img02.png',
-            },
-         },
+      option: [
+         // {
+         //    value: 'PLUMBED',
+         //    content: 'Eficiencia energética </br>superior al A-10',
+         //    optionIcon: 'step04/btn_icon01.png',
+         //    relevantData: {
+         //       description: '10% más eficiente que el grado A ',
+         //       qnaScreenImg: 'step04/que_img02.png',
+         //    },
+         // },
          {
             value: 'WATER_ONLY',
-            content: 'Clasificiación energética A',
+            content: 'Energía Grado A o superior',
             optionIcon: 'step04/btn_icon02.png',
             relevantData: {
-               description: 'Grado A, la clase de mayor eficiencia energética de la escala de clasificación energética de la UE (de la A a la G) que ofrece la tecnología TurboWash™.',
+               description: 'Encima de la categoría A: la clase más eficiente de energía proporcionada por la tecnología TurboWash™.',
                qnaScreenImg: 'step04/que_img03.png',
             },
          },
@@ -381,14 +381,14 @@ const WMConfigData = {
             content: 'Clasificación energética B',
             optionIcon: 'step04/btn_icon03.png',
             relevantData: {
-               description: 'Clasificación enerngética B, medido de A a G en la escala de clasificación energética de la UE.',
+               description: 'Clasificación enerngética B, medido de A a G en la escala de clasificación energética B de la UE.',
                qnaScreenImg: 'step04/que_img04.png',
             }
          },
       ]
    },
    step05: {
-      questionText: '¿Qué aspecto del rendimiento de </br>la lavadora es más importante para usted?',
+      questionText: '¿Qué aspecto del rendimiento de la lavadora es más importante para ti?',
       defaultScreenImg: 'step05/que_img01.png',
       // allSelectOption: true,
       resultContent: true,
@@ -398,7 +398,7 @@ const WMConfigData = {
             value: 'Textilschutz',
             content: 'Cuidado suave de los </br>tejidos para dañarlos lo menos posible',
             relevantData: {
-               description: 'Inteligencia artificial AIDD™ que detecta el peso y las carcaterísticas de los tejidos para optimizar el lavado.',
+               description: 'La Inteligencia artificial AIDD™, detecta el peso y las características de los tejidos para optimizar el rendimiento del lavado y reducir el desgaste de tu ropa.',
                qnaScreenImg: 'step05/que_img02.png',
                videoPopup: 'gentle_fabric_ai_DD',
             }
@@ -407,7 +407,7 @@ const WMConfigData = {
             value: 'Hygiene',
             content: 'Higiene',
             relevantData: {
-               description: 'No te preocupes por los alérgenos. La tecnología Steam™ elimina los dañinos ácaros del polvo.',
+               description: 'No te preocupes por los alérgenos. La tecnología vapor Steam™, elimina las bacterias y los ácaros de polvo.',
                qnaScreenImg: 'step05/que_img03.png',
                videoPopup: 'hygiene_steam',
             }
@@ -434,7 +434,7 @@ const WMConfigData = {
             value: 'Smart',
             content: 'Funciones inteligentes/AI',
             relevantData: {
-               description: 'Controla tu lavadora inteligente LG con wi-fi de forma remota a través de tu smartphone mediante la app LG ThinQ™. ',
+               description: 'Controla tu lavadora inteligente LG con wi-fi de forma remota a través de tu smartphone mediante la app wifi LG ThinQ™. ',
                qnaScreenImg: 'step06/que_img02.png',
                videoPopup: 'smart_ai_thinkQ',
             }
@@ -443,7 +443,7 @@ const WMConfigData = {
             value: 'Automatische',
             content: 'Dosificación automática de detergente',
             relevantData: {
-               description: 'ezDispense™ dosifica con precisión las cantidades de detergente adecuadas para cada ciclo de lavado.',
+               description: 'ezDispense™ dosifica con prescisión las cantidades de detergente y suavizante adecuados para cada ciclo de lavado. ',
                qnaScreenImg: 'step06/que_img03.png',
                videoPopup: 'ezDispense',
             }
@@ -451,7 +451,7 @@ const WMConfigData = {
       ]
    },
    step07: {
-      questionText: '¿Qué color se adapta mejor a su interior? ',
+      questionText: '¿Qué color te gusta más o cúal  se adapta mejor a tu casa?',
       allSelectOption: true,
       resultContent: true,
       productColorImg: ['_white_popup_img', '_steel_popup_img', '_black_popup_img'],
@@ -459,19 +459,19 @@ const WMConfigData = {
          {
             value: 'white',
             content: 'Blanco',
-            relevantData: { 
+            relevantData: {
                description: 'Un elegante electrodoméstico blanco para cualquier estilo de interior y estado de ánimo.',
                qnaScreenImg: 'que_img01.png',
                interactionPage: 'white',
             }
          },
          {
-            value: 'stainless', 
-            content: 'Plateado', 
+            value: 'stainless',
+            content: 'Inox',
             relevantData: {
-               description: 'El plateado complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
+               description: 'El Inox complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
                qnaScreenImg: 'que_img02.png',
-               interactionPage: 'stainless', 
+               interactionPage: 'stainless',
             }
          },
          {
@@ -489,19 +489,19 @@ const WMConfigData = {
 const WDConfigData = {
    step02: {
       questionText: '¿Qué capacidad necesitas? </br><span>(Lavado + Secado)</span>',
-      descriptionOrder: '* La capacidad de la ropa puede variar según el uso',
+      descriptionOrder: '*La capacidad puede variar según el uso',
       allSelectOption: true,
       option: [
-         { 
-            value: 'CAPACITY_UNDER_400L',
+         {
+            value: '8KG',
             content: '8-8,5 kg + 5 kg',
             relevantData: {
-               description: 'Para más de 30 camisas, o un edredón de tamaño queen, en un solo lavado.',
+               description: 'Para más de 30 camisas o un edredón tamaño cama de matrimonio, en un solo lavado',
                icon: 'step02/disc_icon01.png',
             }
          },
          {
-            value: 'NOTDATAa',
+            value: '9KG',
             content: '8-9 kg + 6 kg',
             relevantData: {
                description: 'Para más de 45 camisas o un edredón de tamaño mediano en un solo lavado.',
@@ -544,11 +544,11 @@ const WDConfigData = {
                   content: 'Menos de 49,5 cm',
                },
                {
-                  value: 'NOTDATA',
+                  value: 'DEPTH_UNDER_760MM',
                   content: '55-56,5 cm',
                },
                {
-                  value: 'NOTDATA',
+                  value: 'DEPTH_UNDER_760MM',
                   content: '60 cm o más',
                },
             ],
@@ -589,26 +589,26 @@ const WDConfigData = {
       option: [
          {
             value: 'PLUMBED',
-            content: 'Clasificación energética A',
+            content: 'Energía Grado A o superior',
             optionIcon: 'step04/btn_icon02.png',
             relevantData: {
-               description: 'Clasificación energética A, la clase de mayor eficiencia energética de la escala de clasificación energética de la UE (de la A a la G) que ofrece la tecnología TurboWash™.',
+               description: 'Encima de la categoría A: la clase más eficiente de energía proporcionada por la tecnología TurboWash™.',
                qnaScreenImg: 'step04/que_img03.png',
             },
          },
-         {
-            value: 'WATER_ONLY',
-            content: 'Clasificación energética B-C',
-            optionIcon: 'step04/btn_icon04.png',
-            relevantData: {
-               description: 'No tiene clasificación energética A pero aún con buena eficiencia',
-               qnaScreenImg: 'step04/que_img05.png',
-            },
-         }
+         // {
+         //    value: 'WATER_ONLY',
+         //    content: 'Clasificación energética B-C',
+         //    optionIcon: 'step04/btn_icon04.png',
+         //    relevantData: {
+         //       description: 'No tiene clasificación energética A pero aún con buena eficiencia',
+         //       qnaScreenImg: 'step04/que_img05.png',
+         //    },
+         // }
       ]
    },
    step05: {
-      questionText: '¿Qué aspecto del rendimiento de </br>la lavadora es más importante para usted?',
+      questionText: '¿Qué aspecto del rendimiento de la lavadora es más importante para ti?',
       defaultScreenImg: 'step05/que_img01.png',
       // allSelectOption: true,
       resultContent: true,
@@ -618,7 +618,7 @@ const WDConfigData = {
             value: 'Textilschutz',
             content: 'Cuidado suave de los </br>tejidos para dañarlos lo menos posible',
             relevantData: {
-               description: 'Inteligencia artificial AIDD™ que detecta el peso y las carcaterísticas de los tejidos para optimizar el lavado.',
+               description: 'Inteligencia artificial AIDD™ que detecta el peso y las carcaterísticas de los tejidos para optimizar el lavado, reduciendo un -18% el desgaste de tu ropa.*',
                qnaScreenImg: 'step05/que_img02.png',
                videoPopup: 'gentle_fabric_ai_DD',
             }
@@ -627,7 +627,7 @@ const WDConfigData = {
             value: 'Hygiene',
             content: 'Higiene',
             relevantData: {
-               description: 'No te preocupes por los alérgenos. La tecnología Steam™ elimina los dañinos ácaros del polvo.',
+               description: 'No te preocupes por los alérgenos. La tecnología con vapour SteamTM, Elimina el 99,9% de las bacterias y los ácaros de polvo',
                qnaScreenImg: 'step05/que_img03.png',
                videoPopup: 'hygiene_steam',
             }
@@ -654,7 +654,7 @@ const WDConfigData = {
             value: 'Smart',
             content: 'Funciones inteligentes/AI',
             relevantData: {
-               description: 'Controla tu lavadora inteligente LG con wi-fi de forma remota a través de tu smartphone mediante la app LG ThinQ™. ',
+               description: 'Controla tu lavadora inteligente LG con wi-fi de forma remota a través de tu smartphone mediante la app wifi LG ThinQ™. ',
                qnaScreenImg: 'step06/que_img02.png',
                videoPopup: 'smart_ai_thinkQ',
             }
@@ -663,7 +663,7 @@ const WDConfigData = {
             value: 'Automatische',
             content: 'Dosificación automática de detergente',
             relevantData: {
-               description: 'ezDispense™ dosifica con precisión las cantidades de detergente adecuadas para cada ciclo de lavado.',
+               description: 'ezDispense™ dosifica con prescisión las cantidades de detergente y suavizante adecuados para cada ciclo de lavado. ',
                qnaScreenImg: 'step06/que_img03.png',
                videoPopup: 'ezDispense',
             }
@@ -671,7 +671,7 @@ const WDConfigData = {
       ]
    },
    step07: {
-      questionText: '¿Qué color se adapta mejor a su interior? ',
+      questionText: '¿Qué color te gusta más o cúal  se adapta mejor a tu casa?',
       allSelectOption: true,
       resultContent: true,
       productColorImg: ['_white_popup_img', '_steel_popup_img', '_black_popup_img'],
@@ -679,19 +679,19 @@ const WDConfigData = {
          {
             value: 'white',
             content: 'Blanco',
-            relevantData: { 
+            relevantData: {
                description: 'Un elegante electrodoméstico blanco para cualquier estilo de interior y estado de ánimo.',
                qnaScreenImg: 'que_img01.png',
                interactionPage: 'white',
             }
          },
          {
-            value: 'stainless', 
-            content: 'Plateado', 
+            value: 'stainless',
+            content: 'Inox',
             relevantData: {
-               description: 'El plateado complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
+               description: 'El Inox complementa diversos estilos y es una forma sencilla de añadir estilo a su cocina.',
                qnaScreenImg: 'que_img02.png',
-               interactionPage: 'stainless', 
+               interactionPage: 'stainless',
             }
          },
          {
