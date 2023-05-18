@@ -384,6 +384,15 @@ const configData = {
                qnaScreenImg: 'step04/que_img04.png',
             }
          },
+         /* No Ice & Water Dispenser */
+         {
+            value: 'in dispensador',
+            content: 'Sin dispensador de hielo y agua',
+            relevantData: { 
+               description: 'No hay dispensador de hielo y agua, diseño minimalista',
+               qnaScreenImg: 'step04/que_img04.png',
+            }
+         },
       ]
    },
    step05: {
@@ -455,6 +464,16 @@ const configData = {
             content: 'InstaView™ Door-in-Door®',
             relevantData: {
                description: 'Haz toc toc para ver el interior mientras mantienes la frescura y ahorras energía.',
+               qnaScreenImg: 'step06/que_img04.png',
+               videoPopup: 'instaview',
+            }
+         },
+         /* Craft Ice */
+         {
+            value: 'Craft_Ice',
+            content: 'Craft Ice',
+            relevantData: {
+               description: 'LG Craft Ice fabrica entre 3 a 6 bolas de hielo de disolución  lenta al día. Olvídate de las moldes de hielo caros y lentos.',
                qnaScreenImg: 'step06/que_img04.png',
                videoPopup: 'instaview',
             }
