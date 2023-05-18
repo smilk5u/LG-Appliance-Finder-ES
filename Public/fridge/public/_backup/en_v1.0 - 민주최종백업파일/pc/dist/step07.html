@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ES(스페인) / fridge freezer(냉장고)</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="Description" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="">
+	<meta property="og:description" content=""> 
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta name="Keywords" content="">
+	<meta name="Author" content="">
+	<meta name="robots" content="ALL">
+	<link rel="stylesheet" href="./stylesheets/css/common.css">
+	<script src="./javascripts/jquery-1.8.2.min.js"></script>
+	<!-- <script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WMRN2JB');
+	</script>
+	<script>
+		var standardData = {};
+		standardData = {
+			"siteType": "B2C",
+			"pageType": "MICROSITE",
+			"pdpStatus": "",
+			"level1": "ha",
+			// "level2": "",
+			// "level3": ""
+		};
+		_dl = {
+			"page_name": {
+				"super_category": "home-appliances",
+				"bu": "ha",
+				"sub_category_list": "",
+				"sub_category": "",
+				"page_purpose": "microsite",
+				"category": "refrigerators"
+			},
+			"country_code": "uk",
+			"language_code": "en",
+			"microsite_name": "appliance finder"
+		};
+	</script> -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69014947-51"></script> -->
+	<!-- <script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-69014947-51');
+	</script> -->
+</head>
+<body>
+	<noscript> <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WMRN2JB" height="0" width="0" style="display:none;visibility:hidden" title="googletagmanager iframe"> </iframe> </noscript>
+	<!-- <div class="guide_line">
+      <div class="guide_70"></div>
+      <div class="guide_center"></div>
+      <div class="guide_1320"></div> 
+      <div class="guide_1180"></div>
+   </div> -->
+	<!-- 스테이징 / 라이브 적용시 삭제 -->
+	<!-- <header>header</header> -->
+	<!-- //스테이징 / 라이브 적용시 삭제 -->
+	<!-- <div class="cookie-banner"></div> --> <!-- Enter Code Here -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+<!-- finder -->
+<div id="applianceFinder">
+	<!--intro-->
+	<div id="finderIntro">
+		<!-- <div class="intro_animation">  -->
+		<div class="intro_animation" style="display: none;">
+			<div id="animationPlayer"></div>
+		</div>
+	</div>
+	<!--//intro-->
+	<!-- finderMain -->
+	<div id="finderMain" class="step07"> 
+		<div class="finder_wrap">
+			<!--navigation-->
+			<div id="finderNav">
+				<ul>
+					<li>
+						<strong>1</strong>
+						<p>AUSFÜHRUNG</p>
+					</li>
+					<li>
+						<strong>2</strong>
+						<p>KAPAZITÄT</p>
+					</li>
+					<li>
+						<strong>3</strong>
+						<p>GRÖSSE</p>
+					</li>
+					<li>
+						<strong>4</strong>
+						<p>EIS- und WASSERSPENDER</p>
+					</li>
+					<li>
+						<strong>5</strong>
+						<p>ENERGIEEFFIZIENZ</p>
+					</li>
+					<li>
+						<strong>6</strong>
+						<p>LEISTUNG</p>
+					</li>
+					<li>
+						<strong>7</strong>
+						<p>FARBE</p>
+					</li>
+				</ul>
+			</div>
+			<!--//navigation-->
+			<!--question & answer area-->
+			<div class="qna_wrap">
+				<strong class="que_title"></strong>
+				<div class="qna_description qna_description01">
+					<strong>Che tipo di frigorifero stai cercando?</strong>
+					<div class="txt_box">
+						<i></i>
+						<p></p>
+						<button type="button" class="load_more_btn">Scopri di più</button>
+						<button type="button" class="learn_more_btn">Weitere Informationen</button>
+					</div>
+				</div>
+				<div class="qna_description qna_description02">
+					<div class="txt_box">
+						<p></p>
+						<button id="detailCloseBtn" type="button" class="close_more_btn">SCHLIESSEN</button>
+					</div>
+				</div>
+			</div>
+			<div id="qnaImgWrap"></div>
+		</div>
+		<div id="selectWrap" class="all">
+			<button type="button" class="caution_open_btn">Klicken Sie hier, um weitere Informationen zu Abmessungen und Maßen zu erhalten.</button>
+			<p class="select_tit"><em>Sie können mehrere Optionen auswählen.</em></p>
+			<ol><li><button class="all_select" type="button" data-value="7_SELECTALL"><span></span><p>Alle Auswahlmöglichkeiten</p></button></li><li><button class="option_btn" type="button" data-value="BLACK"><i></i><p>Schwarz</p></button></li><li><button class="option_btn" type="button" data-value="STAINLESS"><i></i><p>Weiß</p></button></li><li><button class="option_btn" type="button" data-value="SILVER"><i></i><p>Edelstahl</p></button></li><li><button class="option_btn" type="button" data-value="WHITE"><i></i><p>Silber</p></button></li></ol>
+		</div>
+		<div class="sub_contain">
+			<div class="show_now_wrap">
+				<button type="button" id="shopNowBtn">Ergebnisse anzeigen</button>
+			</div>
+			<!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
+			<div class="step_move_wrap">
+				<div class="btn_cont">
+					<button type="button" id="backStepBtn">ZURÜCK</button>
+				</div>
+				<div class="btn_cont">
+					<button type="button" class="active" id="nextStepBtn">WEITER</button>
+				</div>
+			</div>
+		</div>
+		<!-- 미매칭 팝업 -->
+		<div class="product_none_popup">
+			<div class="popup_wrap">
+				<p>Purtroppo non abbiamo trovato dei modelli che soddisfino tutte le tue esigenze. Prova a selezionare delle opzioni diverse</p>
+				<button type="button" id="selectAgainBtn">Riprova</button>
+				<button type="button" id="selectAgainCloseBtn">close button</button>
+			</div>
+		</div>
+	</div>
+	<!-- //finderMain -->
+	<!--result-->
+	<div id="finderResult">
+		<strong class="tit">Ecco un riepilogo di <br>ciò che hai selezionato!</strong>
+		<div class="center_img_wrap"></div>
+		<div class="txt_wrap">
+			<dl>
+				<dt>Hai scelto un</dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt>Ti interessa</dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt>Ti consiglieremo un frigo</dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt>con</dt>
+				<dd></dd>
+			</dl> 
+		</div>
+		<div class="result_btn_wrap">
+			<button type="button" id="tryAgain">Cambia le scelte</button>
+			<button type="button" id="finalShowNow">Vai ai risultati</button>
+		</div>
+	</div>
+	<!--//result-->
+	<!-- step01 Interactive Popup -->
+<div id="finderPopup">
+   <div id="popup_step01">
+      <!-- Multidoor -->
+      <div class="popup_wrap">
+         <div class="tit_wrap">
+            <i></i>
+            <strong>American Combi</strong>
+         </div>
+         <div class="popup_con">
+            <strong>Una elección adecuada para hogares grandes o amantes de la comida</strong>
+            <div class="txt_wrap">
+               <img class="mo_only" src="./images/step01/popup_contents_img01.png" alt="Multidoor">
+               <img class="pc_only" src="./images/pc/step01/popup_contents_img01.png" alt="Multidoor">
+               <div class="txt_box">
+                  <p>Adecuado para hogares grandes que usan frecuentemente el frigorífico. La posición del frigorífico está pensanda para agacharse menos.</p>
+                  <button type="button" class="close_btn">Empecemos</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Multidoor -->
+      <!-- Side-by-Side -->
+      <div class="popup_wrap">
+         <div class="tit_wrap">
+            <i></i>
+            <strong>Side By Side</strong>
+         </div>
+         <div class="popup_con">
+            <strong>Una buena elección para quienes utilizan el congelador con frecuencia</strong>
+            <div class="txt_wrap">
+               <img class="mo_only" src="./images/step01/popup_contents_img02.png" alt="Side-by-Side">
+               <img class="pc_only" src="./images/pc/step01/popup_contents_img02.png" alt="Side-by-Side">
+               <div class="txt_box">
+                  <p>Se trata de un frigorífico americano side-by-side espacioso. Tanto en la parte del frigorífico como en la parte del congelado.</p>
+                  <button type="button" class="close_btn">Empecemos</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Side-by-Side -->
+      <!-- Combinati -->
+      <div class="popup_wrap">
+         <div class="tit_wrap">
+            <i></i>
+            <strong>Combi</strong>
+         </div>
+         <div class="popup_con">
+            <strong>Una opción elegante y práctica para ahorrar espacio</strong>
+            <div class="txt_wrap">
+               <img class="mo_only" src="./images/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <img class="pc_only" src="./images/pc/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <div class="txt_box">
+                  <p>Se adapta sin esfuerzo a espacios reducidos, ideal para compradores prudentes que almacenan pequeñas cantidades de alimentos. </p>
+                  <button type="button" class="close_btn">Empecemos</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Combinati -->
+      <!-- Top Freezer -->
+      <div class="popup_wrap">
+         <div class="tit_wrap">
+            <i></i>
+            <strong>Dos puertas</strong>
+         </div>
+         <div class="popup_con">
+            <strong>El frigorífico-congelador Top es ideal para quienes desean un frigorífico de gran capacidad de almacenamiento</strong>
+            <div class="txt_wrap">
+               <img class="mo_only" src="./images/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <img class="pc_only" src="./images/pc/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <div class="txt_box">
+                  <p>Su gran capacidad de almacenamiento interno hace que este frigorífico-congelador de estilo tradicional sea ideal para una gran variedad de usos prácticos.</p>
+                  <button type="button" class="close_btn">Empecemos</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Top Freezer -->
+      <!-- Larder & Freezer (1 Door) -->
+      <div class="popup_wrap">
+         <div class="tit_wrap">
+            <i></i>
+            <strong>Frigorífico y Congelador (1 puerta)</strong>
+         </div>
+         <div class="popup_con">
+            <strong>La elección inteligente para quienes necesitan almacenamiento independiente en el congelador</strong>
+            <div class="txt_wrap">
+               <img class="mo_only" src="./images/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <img class="pc_only" src="./images/pc/step01/popup_contents_img03.png" alt="Kühl-/Gefrierkombination">
+               <div class="txt_box">
+                  <p>Adaptables a tus necesidades, estos electrodomésticos modulares son perfectos para quienes buscan más espacio de almacenamiento para los alimentos.</p>
+                  <button type="button" class="close_btn">Empecemos</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Larder & Freezer (1 Door) -->
+   </div>
+   <!-- //step01 Interactive Popup -->
+   <!-- step03 Size Popup -->
+   <div id="popupSize">
+      <div class="popup_wrap">
+         <strong>GUÍA DE TAMAÑOS</strong>
+         <div class="popup_cont">
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img01_1.jpg" alt="TAMAÑO / Fondo / Ancho / Alto">
+                  <img class="pc_only" src="./images/pc/step03/popup_img01_1.jpg" alt="TAMAÑO / Fondo / Ancho / Alto">
+                  <div class="size_txt">
+                     <span>Fondo</span>
+                     <span>Ancho</span>
+                     <span>Alto</span>
+                  </div>
+               </div>
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img01_2.jpg" alt="Multidoor, Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img01_2.jpg" alt="Multidoor, Profondità">
+                  <div class="depth_size">
+                     <div class="size_elm">
+                        <!-- Counter Depth -->
+                        <p>Profundidad de la encimera</p>
+                     </div>
+                     <div class="size_elm">
+                        <!-- Standard Depth -->
+                        <p>Fondo estándar</p>
+                     </div>
+                  </div>
+                  <div class="under_more_txt">
+                     <!-- Under 760mm -->
+                     <span>Inferior a 760mm</span>
+                     <!-- More 760mm -->
+                     <span>Más de 760mm</span>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator"></div>
+         </div>
+         <div class="popup_cont">
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img02_1.jpg" alt="Side-by-Side, Larghezza / Altezza / Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img02_1.jpg" alt="Side-by-Side, Larghezza / Altezza / Profondità">
+                  <div class="size_txt">
+                     <span>Fondo</span>
+                     <span>Ancho</span>
+                     <span>Alto</span>
+                  </div>
+               </div>
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img02_2.jpg" alt="Side-by-Side, Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img02_2.jpg" alt="Side-by-Side, Profondità">
+                  <div class="depth_size">
+                     <div class="size_elm">
+                        <!-- Counter Depth -->
+                        <p>Profundidad de la encimera</p>
+                     </div>
+                     <div class="size_elm">
+                        <!-- Standard Depth -->
+                        <p>Fondo estándar</p>
+                     </div>
+                  </div>
+                  <div class="under_more_txt">
+                     <!-- Under 760mm -->
+                     <span>Inferior a 760mm</span>
+                     <!-- More 760mm -->
+                     <span>Más de 760mm</span>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator"></div>
+         </div>
+         <div class="popup_cont">
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img03_1.jpg" alt="Combinato, Larghezza / Altezza / Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img03_1.jpg" alt="Combinato, Larghezza / Altezza / Profondità">
+                  <div class="size_txt">
+                     <span>Fondo</span>
+                     <span>Ancho</span>
+                     <span>Alto</span>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator"></div>
+         </div>
+         <div class="popup_cont">
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img04_1.jpg" alt="Doppia porta, Larghezza / Altezza / Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img04_1.jpg" alt="Doppia porta, Larghezza / Altezza / Profondità">
+                  <div class="size_txt">
+                     <span>Fondo</span>
+                     <span>Ancho</span>
+                     <span>Alto</span>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator"></div>
+         </div>
+         <div class="popup_cont">
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img05_1.jpg" alt="Frigoriferi Maxi Side-by-Side, Larghezza / Altezza / Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img05_1.jpg" alt="Frigoriferi Maxi Side-by-Side, Larghezza / Altezza / Profondità">
+                  <div class="size_txt">
+                     <span>Fondo</span>
+                     <span>Ancho</span>
+                     <span>Alto</span>
+                  </div>
+               </div>
+               <div class="swiper-slide">
+                  <img class="mo_only" src="./images/step03/popup_img05_2.jpg" alt="Frigoriferi Maxi Side-by-Side, Profondità">
+                  <img class="pc_only" src="./images/pc/step03/popup_img05_2.jpg" alt="Frigoriferi Maxi Side-by-Side, Profondità">
+                  <div class="depth_size">
+                     <div class="size_elm">
+                        <!-- Counter Depth -->
+                        <p>Profundidad de la encimera</p>
+                     </div>
+                     <div class="size_elm">
+                        <!-- Standard Depth -->
+                        <p>Fondo estándar</p>
+                     </div>
+                  </div>
+                  <div class="under_more_txt">
+                     <!-- Under 760mm -->
+                     <span>Inferior a 760mm</span>
+                     <!-- More 760mm -->
+                     <span>Más de 760mm</span>
+                  </div>
+               </div>
+            </div>
+            <div class="indicator"></div>
+         </div>
+         <button type="button" class="popup_close_btn">Empecemos</button>
+      </div>
+   </div>
+   <!-- //step03 Size Popup -->
+   <!-- step05 Video Popup -->
+   <div id="popupMovie">
+      <div class="popup_wrap">
+         <!-- Long-lasting Freshness -->
+         <div class="movie_box">
+            <strong>Eis- und Wasserspender</strong>
+            <div class="video_wrap">
+               <video playsinline="" muted="" loop="">
+                  <source src="./datafile/long_lasting_freshness.mp4" type="video/mp4">
+               </video>
+               <i></i>
+               <img src="./images/common/long_lasting_freshness_poster_img.jpg" alt="Eis- und Wasserspender">
+               <button type="button" class="video_btn" data-link-name="riproduzione Video : Eis- und Wasserspender">riproduzione Video pulsante</button>
+            </div>
+            <div class="desc">
+               <span>*La ubicación de la función Door Cooling+ puede variar según el frigorífico.</span>
+               <span>*Los vídeos del producto son sólo ilustrativos y pueden diferir del producto real. Se supone que Door Cooling+ deja de funcionar cuando se abre la puerta.</span>
+            </div>
+         </div>
+         <!-- Ventilation Pure N Fresh  -->
+         <div class="movie_box">
+            <strong>Ventilación</strong>
+            <div class="video_wrap">
+               <video playsinline="" muted="" loop="">
+                  <source src="./datafile/ventilation_pure_N_fresh.mp4" type="video/mp4">
+               </video>
+               <i></i>
+               <img src="./images/common/ventilation_pure_N_fresh_poster_img.jpg" alt="Ventilación">
+               <button type="button" class="video_btn" data-link-name="riproduzione Video : Ventilación">riproduzione Video pulsante</button>
+            </div>
+            <div class="desc">
+               <span>*La ubicación y el aspecto de la función Pure N Fresh pueden variar según el frigorífico.</span>
+            </div>
+         </div>
+         <!-- InstaView™ Door-in-Door® -->
+         <div class="movie_box">
+            <strong>InstaView™ Door-in-Door®</strong>
+            <div class="video_wrap">
+               <video playsinline="" muted="" loop="">
+                  <source src="./datafile/instaview.mp4" type="video/mp4">
+               </video>
+               <i></i>
+               <img src="./images/common/instaview_poster_img.jpg" alt="InstaView Door-in-Door®">
+               <button type="button" class="video_btn" data-link-name="riproduzione Video : InstaView Door-in-Door®">riproduzione Video pulsante</button>
+            </div>
+         </div>
+         <!-- Smart/AI features -->
+         <div class="movie_box">
+            <strong>Funciones inteligentes/AI</strong>
+            <div class="video_wrap">
+               <video playsinline="" muted="" loop="">
+                  <source src="./datafile/smart_ai_thinkQ.mp4" type="video/mp4">
+               </video>
+               <i></i>
+               <img src="./images/common/smart_ai_thinkQ_poster_img.jpg" alt="Funciones inteligentes/AI">
+               <button type="button" class="video_btn" data-link-name="riproduzione Video : Funciones inteligentes/AI">riproduzione Video pulsante</button>
+            </div>
+            <div class="desc">
+               <span>*Google y Google Home son marcas comerciales de Google LLC.</span>
+               <span>*Amazon, Alexa, Echo y todos los logotipos y marcas de movimiento relacionados son marcas comerciales de Amazon.com, Inc o sus filiales.</span>
+               <span>*LG SmartThinQ pasa a llamarse LG ThinQ.</span>
+               <span>*Las funciones inteligentes y el asistente de voz del producto pueden variar según el país y el modelo. Consulta con tu distribuidor local o con LG la disponibilidad del servicio.</span>
+               <span>*El dispositivo de altavoz inteligente habilitado para voz no está incluido.</span>
+               <span>*El vídeo del producto puede diferir del producto real.</span>
+            </div>
+         </div>
+         <button type="button" class="popup_close_btn">pulsante di chiusura</button>
+      </div>
+   </div>
+   <!-- //step05 Video Popup -->
+   <!-- step06 Interactive Popup -->
+   <div id="popup_step07">
+      <div class="popup_wrap">
+         <ol class="swiper-wrapper">
+            <li class="swiper-slide">
+               <div class="tit_wrap">
+                  <i></i>
+                  <strong>Negro</strong>
+               </div>
+               <div class="popup_con">
+                  <strong>El negro nunca pasa de moda</strong>
+                  <div class="txt_wrap">
+                     <img src="" alt="Nero product">
+                     <div class="txt_box">
+                        <div>
+                           <p>Las superficies negras mate son menos propensas a dejar huellas por el uso frecuente.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+            <li class="swiper-slide">
+               <div class="tit_wrap">
+                  <i></i>
+                  <strong>Blanco</strong>
+               </div>
+               <div class="popup_con">
+                  <strong>El blanco siempre es una opción con clase. Limpio, fresco y fácil de mantener</strong>
+                  <div class="txt_wrap">
+                     <img src="" alt="Acciaio inox product">
+                     <div class="txt_box">
+                        <div>
+                           <p>Tu nuevo frigorífico combinará bien con diversos estilos de decoración y materiales.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+            <li class="swiper-slide">
+               <div class="tit_wrap">
+                  <i></i>
+                  <strong>Acero inoxidable</strong>
+               </div>
+               <div class="popup_con">
+                  <strong>Un tono elegante que combina sin esfuerzo con diversos estilos de hogar</strong>
+                  <div class="txt_wrap">
+                     <img src="" alt="Argento product">
+                     <div class="txt_box">
+                        <div>
+                           <p>Su aspecto elegante es agradable a la vista y requiere poco mantenimiento.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+            <li class="swiper-slide">
+               <div class="tit_wrap">
+                  <i></i>
+                  <strong>Plateado</strong>
+               </div>
+               <div class="popup_con">
+                  <strong>Un color estable que combina bien con cualquier interior, ambiente o aspecto de la cocina</strong>
+                  <div class="txt_wrap">
+                     <img src="" alt="Bianco product">
+                     <div class="txt_box">
+                        <div>
+                           <p>Los colores plateados combinan bien con varios colores y estilos de interior.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+         </ol>
+         <button type="button" class="close_btn">¡Tus resultados están listos!</button>
+         <div class="indicator"></div>
+      </div>
+   </div>
+</div>
+<!-- //step06 Interactive Popup -->
+</div>
+<!-- //finder -->   
+	<!-- 스테이징 / 라이브 적용시 삭제 -->
+	<!-- <footer>footer</footer> -->
+	<!-- //스테이징 / 라이브 적용시 삭제 -->
+	<script src="./javascripts/plugin.js"></script>
+	<script src="./javascripts/design_common.js"></script>
+</body>
+</html>

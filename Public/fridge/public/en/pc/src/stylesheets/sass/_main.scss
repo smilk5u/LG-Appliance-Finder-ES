@@ -449,9 +449,9 @@
 			padding: vw(40) vw(40) vw(50); border-top: 2px solid #ddd; background: linear-gradient(to bottom, #f2f2f2 20%, $white 80%);
 			li {
 				padding: vw(20) 0 0;
-				&:nth-of-type(2) i { background-image: url(../../images/step05/btn_icon01.png); }
-				&:nth-of-type(3) i { background-image: url(../../images/step05/btn_icon02.png); }
-				&:nth-of-type(4) i { background-image: url(../../images/step05/btn_icon03.png); }
+				&:nth-of-type(2) i { background-image: url(../../images/step05/btn_icon02.png); }
+				&:nth-of-type(3) i { background-image: url(../../images/step05/btn_icon03.png); }
+				&:nth-of-type(4) i { background-image: url(../../images/step05/btn_icon04.png); }
 				button {
 					height:vw(200); padding:0 vw(70) 0 vw(60); background-color:$white; 
 					&.active { background-color: #464646; }
@@ -1005,9 +1005,9 @@
 				ol { width: 1020px; padding: 20px 0 0; flex-wrap: wrap; gap: 12px 20px; justify-content: left; }
 				li {
 					width: 500px; padding: 0;
-					&:nth-of-type(2) i { background-image: url(../../images/pc/step05/btn_icon01.png); }
-					&:nth-of-type(3) i { background-image: url(../../images/pc/step05/btn_icon02.png); }
-					&:nth-of-type(4) i { background-image: url(../../images/pc/step05/btn_icon03.png); }
+					&:nth-of-type(2) i { background-image: url(../../images/pc/step05/btn_icon02.png); }
+					&:nth-of-type(3) i { background-image: url(../../images/pc/step05/btn_icon03.png); }
+					&:nth-of-type(4) i { background-image: url(../../images/pc/step05/btn_icon04.png); }
 					button { height: 120px; padding: 0 30px; justify-content: left; }
 					i {
 						min-width: 60px; min-height: 60px; margin: 0 25px 0 0;

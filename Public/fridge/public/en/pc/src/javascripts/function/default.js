@@ -156,7 +156,7 @@ const resultParamSet = {
 /* Config Data */
 const configData = {
    step01: {
-      questionText: '¿Qué tipo de Frigorífico Congelador está buscando?',
+      questionText: '¿Qué tipo de Frigorífico está buscando?',
       defaultScreenImg: 'step01/que_img00.png',
       singleOption: true, // 단일 옵션
       resultContent: true,
@@ -240,14 +240,14 @@ const configData = {
       ]
    },
    step02: {
-      questionText: '¿Qué capacidad necesita?',
+      questionText: '¿Qué capacidad necesitas?',
       allSelectOption: true,
       option: [
          {
             value: 'CAPACITY_UNDER_400L',
             content: 'Por debajo de 400L',
             relevantData: {
-               description: 'Una opción práctica para el uso poco frecuente del frigoríficor o para las personas que compran pequeñas cantidades de alimentos cada vez.',
+               description: 'Una opción práctica para el uso poco frecuente del frigorífico o para las personas que compran pequeñas cantidades de alimentos cada vez.',
                icon: 'step02/disc_icon01.png',
             }
          },
@@ -286,11 +286,11 @@ const configData = {
       ]
    },
    step03: {
-      questionText: '¿Qué tamaño se adapta mejor a su espacio?',
+      questionText: '¿Qué tamaño se adapta mejor a tu espacio?',
       relevantData: {
          description: {
             head: 'Guía para medir el hueco necesario para tu frigorífico.',
-            detail: 'Calcula que hueco necesitas para tu frigorífico. Las puertas necesitan (25-50mm) de espacio para abrirse y ventilarse. Todos los frigoríficos LG se adaptan al fondo de la encimera. Se desaconseja instalar cerca de zonas frías o calientes.'
+            detail: 'Calcula que hueco necesitas para tu frigorífico. Las puertas necesitan qué (25-50mm) de espacio para abrirse y ventilarse. Todos los frigoríficos LG se adaptan al fondo de la encimera. Se desaconseja instalar cerca de zonas frías o calientes.'
          },
          additionalDesc: true,
          icon: 'step03/disc_icon01.png',
@@ -365,7 +365,7 @@ const configData = {
             content: 'Dispensador de hielo y agua <br> (sin toma de agua)',
             relevantData: {
                description: {
-                  head: 'Con Depósito de agua rellenable conectado al dispensador.',
+                  head: 'Con depósito de agua rellenable conectado al dispensador.',
                   detail: 'Si no puede conectarse a una toma de agua, los frigoríficos sin toma  tienen un depóstito de agua rellenable conectado al dispensador de agua de la puerta.'
                },
                // additionalDesc: true,
@@ -394,20 +394,20 @@ const configData = {
       anythingOption: true,
       option: [
          /* Over A-10% Energy Efficiency */
-         {
-            value: 'eficiencia',
-            content: 'Más de un 10% de eficiencia energética',
-            relevantData: {
-               description: 'Al menos un 10% más eficiente que los modelos A',
-               qnaScreenImg: 'step05/que_img02.png',
-            },
-         },
+         // {
+         //    value: 'eficiencia',
+         //    content: 'Más de un 10% de eficiencia energética',
+         //    relevantData: {
+         //       description: 'Al menos un 10% más eficiente que los modelos A',
+         //       qnaScreenImg: 'step05/que_img02.png',
+         //    },
+         // },
          /* Energy Grade A */
          {
             value: 'Effizienzklasse',
-            content: 'Eficiencia energética A',
+            content: 'Energía Grado A o superior',
             relevantData: {
-               description: 'Clasificiación A, la más eficiente en la escala de clasificación energética de la UE (de la A a la G) que ofrece LG Inverter Linear Compressor™.',
+               description: 'Encima de la categoría A: la clase más eficiente de energía proporcionada por la tecnología LG Inverter Linear Compressor™.',
                qnaScreenImg: 'step05/que_img03.png',
             }
          },
@@ -423,7 +423,7 @@ const configData = {
       ]
    },
    step06: {
-      questionText: '¿Qué otros detallaes del frigorífico son importantes para ti?',
+      questionText: '¿Qué otros detalles del frigorífico son importantes para ti?',
       defaultScreenImg: 'step06/que_img01.png',
       allSelectOption: true,
       resultContent: true,
@@ -454,7 +454,7 @@ const configData = {
             value: 'InstaView',
             content: 'InstaView™ Door-in-Door®',
             relevantData: {
-               description: 'Haz toc toc para ver el interior mientras mantienes la freescura y ahorras energía.',
+               description: 'Haz toc toc para ver el interior mientras mantienes la frescura y ahorras energía.',
                qnaScreenImg: 'step06/que_img04.png',
                videoPopup: 'instaview',
             }
