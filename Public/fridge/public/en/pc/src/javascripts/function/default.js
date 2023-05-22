@@ -74,6 +74,7 @@ let stageLinkName; // Link Name
 /* Spec Sit Product Value */
 const productSpec = {
    'product1': ['MULTI', 'CAPACITY_UNDER_400L', 'DEPTH_UNDER_760MM', 'WIDTH_UNDER_600MM', 'HEIGHT_SPANCE_1800MM_2000MM', 'PLUMBED', 'PURE_N_FRESH', 'THINKQ', 'DOOR_COOLING', 'FOLDING_SHELF', 'REVERSIBLE_DOOR', 'ENERGY_GRADE_A', 'BLACK'],
+   'product1_1': ['MULTI', 'CAPACITY_UNDER_400L', 'DEPTH_UNDER_760MM', 'WIDTH_SPANCE_810MM_900MM', 'HEIGHT_SPANCE_1800MM_2000MM', 'PLUMBED', 'PURE_N_FRESH', 'THINKQ', 'DOOR_COOLING', 'FOLDING_SHELF', 'REVERSIBLE_DOOR', 'ENERGY_GRADE_A', 'BLACK'],
    'product2': ['MULTI', 'CAPACITY_SPACE_500L_600L', 'DEPTH_UNDER_760MM', 'WIDTH_SPANCE_610MM_800MM', 'HEIGHT_UNDER_1800MM', 'WATER_ONLY', 'PURE_N_FRESH', 'THINKQ', 'DOOR_COOLING', 'FOLDING_SHELF', 'REVERSIBLE_DOOR', 'ENERGY_GRADE_D', 'BLACK'],
    'product3': ['AMERICAN', 'CAPACITY_SPACE_400L_500L', 'DEPTH_UNDER_760MM', 'WIDTH_SPANCE_810MM_900MM', 'HEIGHT_SPANCE_1800MM_2000MM', 'PLUMBED', 'PURE_N_FRESH', 'THINKQ', 'DOOR_COOLING', 'REVERSIBLE_DOOR', 'ENERGY_GRADE_A', 'STAINLESS'],
    'product4': ['AMERICAN', 'CAPACITY_SPACE_400L_500L', 'DEPTH_UNDER_760MM', 'WIDTH_SPANCE_610MM_800MM', 'HEIGHT_2000L_OR_MORE', 'NON_PLUMBED', 'INSTAVIEW', 'THINKQ', 'DOOR_COOLING', 'FOLDING_SHELF', 'REVERSIBLE_DOOR', 'ENERGY_GRADE_A', 'SILVER'],
@@ -352,7 +353,7 @@ const configData = {
       option: [
          /* Ice & Water Dispenser (Plumbed) */
          {
-            value: 'Wasserspender',
+            value: 'Plumbed',
             content: 'Dispensador de hielo y agua <br> (con toma de agua)',
             relevantData: {
                description: 'Dispensa agua y hielo sin necesidad de rellenar el depósito de agua.',
@@ -361,7 +362,7 @@ const configData = {
          },
          /* Ice & Water Dispenser (Non-Plumbed) */
          {
-            value: 'Festwasseranschluss',
+            value: 'Non_Plumbed',
             content: 'Dispensador de hielo y agua <br> (sin toma de agua)',
             relevantData: {
                description: {
@@ -374,7 +375,7 @@ const configData = {
          },
          /* Water Only Dispenser (Non-Plumbed) */
          {
-            value: 'ohne',
+            value: 'Water_Only_Dispenser',
             content: 'Dispensador de agua <br> (sin toma de agua)',
             relevantData: {
                description: {
@@ -386,11 +387,11 @@ const configData = {
          },
          /* No Ice & Water Dispenser */
          {
-            value: 'in dispensador',
+            value: 'NoIce_Water_Dispenser',
             content: 'Sin dispensador de hielo y agua',
-            relevantData: { 
+            relevantData: {
                description: 'No hay dispensador de hielo y agua, diseño minimalista',
-               qnaScreenImg: 'step04/que_img04.png',
+               qnaScreenImg: 'step04/que_img01.png',
             }
          },
       ]
@@ -474,8 +475,7 @@ const configData = {
             content: 'Craft Ice',
             relevantData: {
                description: 'LG Craft Ice fabrica entre 3 a 6 bolas de hielo de disolución  lenta al día. Olvídate de las moldes de hielo caros y lentos.',
-               qnaScreenImg: 'step06/que_img04.png',
-               videoPopup: 'instaview',
+               qnaScreenImg: 'step06/que_img05.png',   
             }
          },
       ]
